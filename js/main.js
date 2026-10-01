@@ -408,3 +408,10 @@ if (leadForm) {
     field.addEventListener('change', () => field.classList.remove('is-invalid'));
   });
 }
+
+/* Si la persona pidió reducir el movimiento, los videos de tratamientos quedan en pausa (se ve el póster) */
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.proc-card__video').forEach((v) => {
+    if (v.tagName === 'VIDEO') { v.removeAttribute('autoplay'); v.pause(); }
+  });
+}

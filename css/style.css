@@ -6,7 +6,7 @@
   --surface: #FFFFFF;
   --ink: #0F0E0B;
   --accent: #C9A24B;
-  --accent-dark: #8A6A28;
+  --accent-dark: #7A5C1F;
   --accent-light: #E6CC86;
   --heading: #1A1712;
   --text: #2E2A24;
@@ -78,6 +78,13 @@ html { scroll-behavior: smooth; overflow-x: clip; }
 .hero__trust-list li.reveal:nth-child(5) { transition-delay: .32s; }
 .proc-card.reveal:nth-child(2) { transition-delay: .1s; }
 .proc-card.reveal:nth-child(3) { transition-delay: .2s; }
+
+/* Foco visible para quien navega con teclado */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, .proc-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+.lead-form input:focus-visible, .lead-form select:focus-visible, .lead-form textarea:focus-visible { outline-offset: 0; }
 
 /* SELECCIÓN DE IDIOMA (solo la primera visita) */
 .lang-gate {
@@ -180,6 +187,7 @@ body.lang-gate-open { overflow: hidden; }
   box-shadow: 0 6px 16px rgba(60,45,20,.08);
   transition: border-color .2s, box-shadow .2s;
 }
+.lang-toggle::after { content: ''; position: absolute; inset: -8px -4px; }
 .lang-toggle:hover { border-color: var(--accent); box-shadow: 0 8px 20px rgba(60,45,20,.14); }
 .lang-toggle svg { width: 16px; height: 16px; color: var(--accent-dark); }
 
@@ -551,7 +559,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
 .hero__doctor span { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
 
 .hero__stats { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-bottom: 34px; max-width: 470px; }
-.hero__stats li { display: flex; align-items: flex-start; gap: 9px; font-size: clamp(11px, .25vw + 10px, 13px); color: var(--text-muted); }
+.hero__stats li { display: flex; align-items: flex-start; gap: 9px; font-size: clamp(12px, .25vw + 10px, 13px); color: var(--text-muted); }
 .hero__stats svg { width: 22px; height: 22px; color: var(--accent-dark); flex-shrink: 0; margin-top: 2px; }
 .hero__stats strong { display: block; font-family: var(--serif); font-size: clamp(14px, .5vw + 12px, 17px); font-weight: 400; color: var(--heading); line-height: 1.3; }
 
