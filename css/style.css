@@ -364,9 +364,63 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
 }
 .hero__media-badge strong { display: block; font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--heading); }
 .hero__media-badge span { font-size: 13px; color: var(--text-muted); }
-/* En escritorio la foto grande reemplaza a la franja con la foto pequeña */
+.hero__top-cta { display: none; }
+
+/* ESCRITORIO: el hero cabe en una pantalla, logo a la izquierda y botón a la derecha.
+   La foto grande reemplaza a la franja con la foto pequeña (el móvil no cambia). */
 @media (min-width: 961px) {
   .hero__text .hero__doctor { display: none; }
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 0 64px;
+  }
+  .hero__topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+  .hero__logo-top { margin: 0; justify-content: flex-start; }
+  .hero__logo-img { width: 56px; height: 56px; }
+  .hero__logo-text { font-size: 24px; }
+  .hero__top-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 22px;
+    border-radius: 999px;
+    border: 1px solid var(--heading);
+    color: var(--heading);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background .3s, color .3s;
+  }
+  .hero__top-cta:hover { background: var(--heading); color: var(--bg); }
+  .hero__inner { flex: 1; align-items: center; }
+  .hero__media { max-width: none; width: auto; justify-self: end; }
+  .hero__media img {
+    width: auto;
+    height: min(64vh, 560px);
+    min-height: 440px;
+  }
+  /* Halo dorado suave detrás de la foto, en vez del marco desplazado */
+  .hero__media::before {
+    inset: 10% -12% -6% 12%;
+    border: none;
+    border-radius: 50%;
+    opacity: 1;
+    background: radial-gradient(closest-side, rgba(201,162,75,.28), transparent);
+    filter: blur(20px);
+  }
+  .hero__media-badge {
+    left: -36px;
+    bottom: 40px;
+    border-left: 3px solid var(--accent);
+  }
 }
 
 /* AGENDA (formulario + razones) */
@@ -632,7 +686,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
 }
 
 /* La navegación lateral solo aparece cuando cabe fuera del contenido */
-@media (max-width: 1259px) {
+@media (max-width: 1359px) {
   .side-nav { display: none; }
 }
 
