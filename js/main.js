@@ -1,3 +1,212 @@
+/* Idiomas: español e inglés. La primera visita muestra la pantalla de selección;
+   después se recuerda la elección y el botón ES/EN del encabezado permite cambiarla. */
+const translations = {
+  es: {
+    'page-title': 'Excellent Dental Studio | Diseño de sonrisa en Medellín',
+    'page-description': 'Excellent Dental Studio, odontología integral y estética en Medellín. Dra. Sandra Acevedo, expertos en diseño de sonrisa digital. Agenda tu valoración.',
+    'lang-toggle-label': 'EN',
+    'nav-aria': 'Secciones',
+    'nav-1': 'Inicio', 'nav-1-aria': 'Ir a Inicio',
+    'nav-2': 'Tratamientos', 'nav-2-aria': 'Ir a Tratamientos',
+    'nav-3': 'Agenda tu valoración', 'nav-3-aria': 'Ir a Agenda tu valoración',
+    'nav-4': 'Turismo odontológico', 'nav-4-aria': 'Ir a Turismo odontológico',
+    'nav-5': 'Sedes', 'nav-5-aria': 'Ir a Sedes',
+    'hero-eyebrow': 'Odontología integral y estética &middot; Medellín',
+    'hero-h1': 'Diseñamos sonrisas que elevan tu imagen, tu seguridad y tu <span class="accent">presencia.</span>',
+    'hero-sub': 'Más de 20 años creando sonrisas únicas, naturales y totalmente personalizadas en Medellín.',
+    'doctor-name': 'Dra. Sandra Acevedo',
+    'doctor-title': 'Especialista en diseño de sonrisa',
+    'doctor-photo-alt': 'Dra. Sandra Acevedo en Excellent Dental Studio',
+    'stat-1-title': '+20 años', 'stat-1-text': 'Creando sonrisas en Medellín',
+    'stat-2-title': 'Diseño digital', 'stat-2-text': 'Expertos en diseño de sonrisa digital',
+    'stat-3-title': '2 sedes en Medellín', 'stat-3-text': 'Laureles y El Poblado',
+    'stat-4-title': 'Turismo odontológico', 'stat-4-text': 'Pacientes nacionales e internacionales',
+    'cta': 'Agendar valoración',
+    'proc-title': '¿Qué deseas transformar?',
+    'proc-sub': 'Sonrisas personalizadas y naturales, que resaltan tu verdadera esencia.',
+    'proc-1-title': 'Diseño de sonrisa en cerámica', 'proc-1-text': 'Laminados cerámicos de estética premium y durabilidad superior.',
+    'proc-2-title': 'Micro diseño de sonrisa', 'proc-2-text': 'Resultados sutiles y armónicos con técnicas mínimamente invasivas.',
+    'proc-3-title': 'Rehabilitación oral', 'proc-3-text': 'Prótesis fija y láminas cerámicas para devolver función y armonía.',
+    'proc-3-alt': 'Resultado de rehabilitación oral en Excellent Dental Studio',
+    'form-eyebrow': 'Agenda tu',
+    'form-title': 'Valoración sin compromiso',
+    'form-name': 'Nombre',
+    'form-phone': 'Teléfono / WhatsApp',
+    'form-treatment': 'Tratamiento de interés',
+    'form-select': 'Selecciona una opción',
+    'opt-1': 'Diseño de sonrisa en cerámica',
+    'opt-2': 'Diseño de sonrisa en resina',
+    'opt-3': 'Micro diseño de sonrisa',
+    'opt-4': 'Rehabilitación oral',
+    'opt-5': 'Prótesis dental',
+    'opt-6': 'Ortodoncia invisible',
+    'opt-7': 'Cirugía oral',
+    'opt-8': 'Valoración general',
+    'form-message': 'Mensaje <em>(opcional)</em>',
+    'form-error': 'Completa tu nombre, teléfono y el tratamiento de interés.',
+    'trust-data': 'Tus datos están protegidos.',
+    'trust-payment': 'Planes de pago cómodos.',
+    'why-title': '¿Por qué elegir Excellent Dental Studio?',
+    'why-1-title': '+20 años de experiencia',
+    'why-1-text': 'La Dra. Sandra Acevedo cuida cada detalle con excelencia, compromiso y pasión por la estética dental.',
+    'why-2-title': 'Diseño adaptado a tu rostro',
+    'why-2-text': 'Analizamos la forma de tu rostro, el ancho real de tu sonrisa y el color perfecto para tu piel.',
+    'why-3-title': 'Materiales de alta calidad',
+    'why-3-text': 'Trabajamos con <strong>cerámica</strong> o <strong>resina</strong> para lograr resultados duraderos, armónicos y naturales.',
+    'why-4-title': 'Odontología integral',
+    'why-4-text': 'Cirugía oral, prótesis, rehabilitación oral, ortodoncia invisible y estética dental en un mismo lugar.',
+    'why-5-title': 'Garantía y seguimiento',
+    'why-5-text': 'Diagnóstico personalizado, garantía y seguimiento profesional en cada etapa de tu tratamiento.',
+    'tour-eyebrow': 'Turismo odontológico',
+    'tour-title': 'Tu sonrisa, en manos expertas <span class="accent">desde cualquier lugar.</span>',
+    'tour-text': 'Seguimos impactando la odontología en Medellín y en el mundo. Recibimos pacientes nacionales e internacionales con la misma calidad, profesionalismo y calidez humana de siempre.',
+    'loc-title': 'Nuestras sedes en Medellín',
+    'loc-1': 'Sede El Poblado',
+    'loc-1-addr': 'Edificio Xerox, Cra. 43A #15 Sur-15<br>Consultorio 903',
+    'loc-2': 'Sede Laureles',
+    'footer-text': 'Odontología integral y estética &middot; @excellentdental.studio',
+    'wa-greeting': 'Hola, quiero agendar una valoración en Excellent Dental Studio.',
+    'wa-name': 'Nombre',
+    'wa-phone': 'Teléfono',
+    'wa-treatment': 'Tratamiento de interés',
+    'wa-message': 'Mensaje',
+  },
+  en: {
+    'page-title': 'Excellent Dental Studio | Smile Design in Medellín, Colombia',
+    'page-description': 'Excellent Dental Studio, comprehensive and cosmetic dentistry in Medellín, Colombia. Dr. Sandra Acevedo, experts in digital smile design. Book your consultation.',
+    'lang-toggle-label': 'ES',
+    'nav-aria': 'Sections',
+    'nav-1': 'Home', 'nav-1-aria': 'Go to Home',
+    'nav-2': 'Treatments', 'nav-2-aria': 'Go to Treatments',
+    'nav-3': 'Book your consultation', 'nav-3-aria': 'Go to Book your consultation',
+    'nav-4': 'Dental tourism', 'nav-4-aria': 'Go to Dental tourism',
+    'nav-5': 'Locations', 'nav-5-aria': 'Go to Locations',
+    'hero-eyebrow': 'Comprehensive &amp; cosmetic dentistry &middot; Medellín',
+    'hero-h1': 'We design smiles that elevate your image, your confidence and your <span class="accent">presence.</span>',
+    'hero-sub': 'Over 20 years creating unique, natural and fully personalized smiles in Medellín, Colombia.',
+    'doctor-name': 'Dr. Sandra Acevedo',
+    'doctor-title': 'Smile design specialist',
+    'doctor-photo-alt': 'Dr. Sandra Acevedo at Excellent Dental Studio',
+    'stat-1-title': '20+ years', 'stat-1-text': 'Creating smiles in Medellín',
+    'stat-2-title': 'Digital design', 'stat-2-text': 'Experts in digital smile design',
+    'stat-3-title': '2 locations in Medellín', 'stat-3-text': 'Laureles and El Poblado',
+    'stat-4-title': 'Dental tourism', 'stat-4-text': 'Local and international patients',
+    'cta': 'Book a consultation',
+    'proc-title': 'What would you like to transform?',
+    'proc-sub': 'Personalized, natural smiles that highlight your true essence.',
+    'proc-1-title': 'Porcelain smile design', 'proc-1-text': 'Porcelain veneers with premium aesthetics and superior durability.',
+    'proc-2-title': 'Micro smile design', 'proc-2-text': 'Subtle, harmonious results with minimally invasive techniques.',
+    'proc-3-title': 'Full mouth rehabilitation', 'proc-3-text': 'Fixed prosthetics and porcelain veneers to restore function and harmony.',
+    'proc-3-alt': 'Full mouth rehabilitation result at Excellent Dental Studio',
+    'form-eyebrow': 'Book your',
+    'form-title': 'No-obligation consultation',
+    'form-name': 'Name',
+    'form-phone': 'Phone / WhatsApp',
+    'form-treatment': 'Treatment of interest',
+    'form-select': 'Select an option',
+    'opt-1': 'Porcelain smile design',
+    'opt-2': 'Composite resin smile design',
+    'opt-3': 'Micro smile design',
+    'opt-4': 'Full mouth rehabilitation',
+    'opt-5': 'Dental prosthetics',
+    'opt-6': 'Clear aligners',
+    'opt-7': 'Oral surgery',
+    'opt-8': 'General consultation',
+    'form-message': 'Message <em>(optional)</em>',
+    'form-error': 'Please enter your name, phone number and treatment of interest.',
+    'trust-data': 'Your information is protected.',
+    'trust-payment': 'Flexible payment plans.',
+    'why-title': 'Why choose Excellent Dental Studio?',
+    'why-1-title': '20+ years of experience',
+    'why-1-text': 'Dr. Sandra Acevedo takes care of every detail with excellence, commitment and a passion for cosmetic dentistry.',
+    'why-2-title': 'Designed for your face',
+    'why-2-text': 'We analyze the shape of your face, the real width of your smile and the perfect shade for your skin.',
+    'why-3-title': 'High-quality materials',
+    'why-3-text': 'We work with <strong>porcelain</strong> or <strong>composite resin</strong> for long-lasting, harmonious and natural results.',
+    'why-4-title': 'Comprehensive dentistry',
+    'why-4-text': 'Oral surgery, prosthetics, full mouth rehabilitation, clear aligners and cosmetic dentistry, all in one place.',
+    'why-5-title': 'Warranty and follow-up',
+    'why-5-text': 'Personalized diagnosis, warranty and professional follow-up at every stage of your treatment.',
+    'tour-eyebrow': 'Dental tourism',
+    'tour-title': 'Your smile, in expert hands <span class="accent">from anywhere in the world.</span>',
+    'tour-text': 'We keep making an impact on dentistry in Medellín and around the world. We welcome local and international patients with the same quality, professionalism and warmth as always.',
+    'loc-title': 'Our locations in Medellín',
+    'loc-1': 'El Poblado location',
+    'loc-1-addr': 'Edificio Xerox, Cra. 43A #15 Sur-15<br>Office 903',
+    'loc-2': 'Laureles location',
+    'footer-text': 'Comprehensive &amp; cosmetic dentistry &middot; @excellentdental.studio',
+    'wa-greeting': 'Hello, I would like to book a consultation at Excellent Dental Studio.',
+    'wa-name': 'Name',
+    'wa-phone': 'Phone',
+    'wa-treatment': 'Treatment of interest',
+    'wa-message': 'Message',
+  },
+};
+
+const LANG_KEY = 'excellent_dental_lang';
+
+function currentLang() {
+  return document.documentElement.lang === 'en' ? 'en' : 'es';
+}
+
+function applyLanguage(lang) {
+  const dict = translations[lang] || translations.es;
+  document.documentElement.lang = lang;
+  document.title = dict['page-title'];
+  const metaDesc = document.getElementById('pageDescription');
+  if (metaDesc) metaDesc.setAttribute('content', dict['page-description']);
+
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) el.textContent = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+    const key = el.getAttribute('data-i18n-html');
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+    const key = el.getAttribute('data-i18n-alt');
+    if (dict[key] !== undefined) el.setAttribute('alt', dict[key]);
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
+    const key = el.getAttribute('data-i18n-aria');
+    if (dict[key] !== undefined) el.setAttribute('aria-label', dict[key]);
+  });
+
+  try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+}
+
+const langGate = document.getElementById('langGate');
+const langToggle = document.getElementById('langToggle');
+
+let savedLang = null;
+try { savedLang = localStorage.getItem(LANG_KEY); } catch (e) {}
+
+if (savedLang === 'es' || savedLang === 'en') {
+  applyLanguage(savedLang);
+  if (langGate) langGate.remove();
+} else if (langGate) {
+  document.body.classList.add('lang-gate-open');
+  langGate.querySelector('.lang-btn')?.focus();
+}
+
+if (langGate) {
+  langGate.querySelectorAll('.lang-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      applyLanguage(btn.getAttribute('data-lang'));
+      document.body.classList.remove('lang-gate-open');
+      langGate.classList.add('is-hidden');
+      setTimeout(() => langGate.remove(), 300);
+    });
+  });
+}
+
+if (langToggle) {
+  langToggle.addEventListener('click', () => {
+    applyLanguage(currentLang() === 'es' ? 'en' : 'es');
+  });
+}
+
 if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
   const glow = document.querySelector('.cursor-glow');
   let ticking = false;
@@ -179,15 +388,18 @@ if (leadForm) {
     formError.hidden = valid;
     if (!valid) return;
 
+    // El mensaje sale en el idioma que eligió la persona, así la clínica sabe en qué idioma responder
+    const dict = translations[currentLang()];
     const data = new FormData(leadForm);
+    const select = leadForm.querySelector('select[name="tratamiento"]');
     const lines = [
-      'Hola, quiero agendar una valoración en Excellent Dental Studio.',
-      `Nombre: ${data.get('nombre').trim()}`,
-      `Teléfono: ${data.get('telefono').trim()}`,
-      `Tratamiento de interés: ${data.get('tratamiento')}`,
+      dict['wa-greeting'],
+      `${dict['wa-name']}: ${data.get('nombre').trim()}`,
+      `${dict['wa-phone']}: ${data.get('telefono').trim()}`,
+      `${dict['wa-treatment']}: ${select.options[select.selectedIndex].textContent.trim()}`,
     ];
     const mensaje = data.get('mensaje').trim();
-    if (mensaje) lines.push(`Mensaje: ${mensaje}`);
+    if (mensaje) lines.push(`${dict['wa-message']}: ${mensaje}`);
     window.open('https://wa.me/573147623636?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
   });
 
