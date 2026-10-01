@@ -10,10 +10,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 <script>
-  /* Si la persona ya eligió idioma, se oculta la pantalla de selección antes de pintar la página */
-  try { var l = localStorage.getItem('excellent_dental_lang'); if (l === 'es' || l === 'en') { document.documentElement.lang = l; document.documentElement.classList.add('lang-chosen'); } } catch (e) {}
+  /* Si la persona ya eligió idioma (o el enlace trae ?lang=es / ?lang=en), se oculta la pantalla de selección antes de pintar la página */
+  try { var q = new URLSearchParams(location.search).get('lang'); if (q === 'es' || q === 'en') localStorage.setItem('excellent_dental_lang', q); var l = localStorage.getItem('excellent_dental_lang'); if (l === 'es' || l === 'en') { document.documentElement.lang = l; document.documentElement.classList.add('lang-chosen'); } } catch (e) {}
 </script>
 </head>
 <body>
@@ -41,6 +41,8 @@
 <nav class="side-nav" aria-label="Secciones" data-i18n-aria="nav-aria">
   <ul>
     <li><button type="button" data-target="inicio" aria-label="Ir a Inicio" data-i18n-aria="nav-1-aria"><span class="side-nav__label" data-i18n="nav-1">Inicio</span></button></li>
+    <li><button type="button" data-target="resultados" aria-label="Ir a Antes y después" data-i18n-aria="nav-6-aria"><span class="side-nav__label" data-i18n="nav-6">Antes y después</span></button></li>
+    <li><button type="button" data-target="historias" aria-label="Ir a Historias reales" data-i18n-aria="nav-7-aria"><span class="side-nav__label" data-i18n="nav-7">Historias reales</span></button></li>
     <li><button type="button" data-target="tratamientos" aria-label="Ir a Tratamientos" data-i18n-aria="nav-2-aria"><span class="side-nav__label" data-i18n="nav-2">Tratamientos</span></button></li>
     <li><button type="button" data-target="contacto" aria-label="Ir a Agenda tu valoración" data-i18n-aria="nav-3-aria"><span class="side-nav__label" data-i18n="nav-3">Agenda tu valoración</span></button></li>
     <li><button type="button" data-target="turismo" aria-label="Ir a Turismo odontológico" data-i18n-aria="nav-4-aria"><span class="side-nav__label" data-i18n="nav-4">Turismo odontológico</span></button></li>
@@ -77,7 +79,6 @@
     <div class="hero__text">
       <p class="eyebrow" data-i18n-html="hero-eyebrow">Odontología integral y estética &middot; Medellín</p>
       <h1 data-i18n-html="hero-h1">Diseñamos sonrisas que elevan tu imagen, tu seguridad y tu <span class="accent">presencia.</span></h1>
-      <p class="hero__sub" data-i18n="hero-sub">Más de 20 años creando sonrisas únicas, naturales y totalmente personalizadas en Medellín.</p>
 
       <div class="hero__doctor">
         <img src="assets/img/dra-sandra-acevedo.jpg" alt="Dra. Sandra Acevedo" data-i18n-alt="doctor-name" width="64" height="64">
@@ -118,6 +119,92 @@
         <span data-i18n="doctor-title">Especialista en diseño de sonrisa</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ANTES Y DESPUÉS -->
+<section class="results" id="resultados" data-section>
+  <div class="container">
+    <div class="section-title reveal">
+      <p class="eyebrow" data-i18n="ba-title">Antes y después</p>
+      <p class="section-title__sub" data-i18n="ba-sub">Desliza para ver el cambio.</p>
+    </div>
+    <div class="ba-grid">
+      <figure class="ba reveal">
+        <div class="ba__frame" data-ba>
+          <img src="assets/img/antes-despues/caso1-despues.jpg" alt="" class="ba__img" loading="lazy" data-i18n-alt="ba-after-alt">
+          <div class="ba__before">
+            <img src="assets/img/antes-despues/caso1-antes.jpg" alt="" class="ba__img" loading="lazy" data-i18n-alt="ba-before-alt">
+          </div>
+          <span class="ba__tag ba__tag--before" data-i18n="ba-before">Antes</span>
+          <span class="ba__tag ba__tag--after" data-i18n="ba-after">Después</span>
+          <span class="ba__handle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+          <input type="range" min="0" max="100" value="50" class="ba__range" aria-label="Comparar antes y después" data-i18n-aria="ba-range-aria">
+        </div>
+        <figcaption data-i18n="ba-1">Caso real</figcaption>
+      </figure>
+      <figure class="ba reveal">
+        <div class="ba__frame" data-ba>
+          <img src="assets/img/antes-despues/caso2-despues.jpg" alt="" class="ba__img" loading="lazy" data-i18n-alt="ba-after-alt">
+          <div class="ba__before">
+            <img src="assets/img/antes-despues/caso2-antes.jpg" alt="" class="ba__img" loading="lazy" data-i18n-alt="ba-before-alt">
+          </div>
+          <span class="ba__tag ba__tag--before" data-i18n="ba-before">Antes</span>
+          <span class="ba__tag ba__tag--after" data-i18n="ba-after">Después</span>
+          <span class="ba__handle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+          <input type="range" min="0" max="100" value="50" class="ba__range" aria-label="Comparar antes y después" data-i18n-aria="ba-range-aria">
+        </div>
+        <figcaption data-i18n="ba-2">Carillas de porcelana</figcaption>
+      </figure>
+    </div>
+
+    <div class="gallery">
+      <img src="assets/img/resultados/resultado-1.jpg" alt="" loading="lazy" class="reveal" data-i18n-alt="gallery-alt">
+      <img src="assets/img/resultados/resultado-2.jpg" alt="" loading="lazy" class="reveal" data-i18n-alt="gallery-alt">
+      <img src="assets/img/resultados/resultado-3.jpg" alt="" loading="lazy" class="reveal" data-i18n-alt="gallery-alt">
+      <img src="assets/img/resultados/resultado-4.jpg" alt="" loading="lazy" class="reveal" data-i18n-alt="gallery-alt">
+    </div>
+  </div>
+</section>
+
+<!-- HISTORIAS REALES (videos) -->
+<section class="stories" id="historias" data-section>
+  <div class="container">
+    <div class="section-title reveal">
+      <p class="eyebrow" data-i18n="stories-title">Historias reales</p>
+    </div>
+  </div>
+  <div class="stories__track" id="storiesTrack">
+      <button type="button" class="story reveal" data-video="assets/video/historias/transformacion.mp4">
+        <video class="story__video" src="assets/video/historias/transformacion.mp4" poster="assets/video/historias/transformacion.jpg" muted loop playsinline preload="none"></video>
+        <span class="story__overlay"></span>
+        <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="story__label" data-i18n="story-1">Transformación</span>
+      </button>
+      <button type="button" class="story reveal" data-video="assets/video/historias/sito-perez.mp4">
+        <video class="story__video" src="assets/video/historias/sito-perez.mp4" poster="assets/video/historias/sito-perez.jpg" muted loop playsinline preload="none"></video>
+        <span class="story__overlay"></span>
+        <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="story__label" data-i18n="story-2">Sito Pérez · España</span>
+      </button>
+      <button type="button" class="story reveal" data-video="assets/video/historias/angel-santana.mp4">
+        <video class="story__video" src="assets/video/historias/angel-santana.mp4" poster="assets/video/historias/angel-santana.jpg" muted loop playsinline preload="none"></video>
+        <span class="story__overlay"></span>
+        <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="story__label" data-i18n="story-3">Ángel Santana · Tampa</span>
+      </button>
+      <button type="button" class="story reveal" data-video="assets/video/historias/turismo-dental.mp4">
+        <video class="story__video" src="assets/video/historias/turismo-dental.mp4" poster="assets/video/historias/turismo-dental.jpg" muted loop playsinline preload="none"></video>
+        <span class="story__overlay"></span>
+        <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="story__label" data-i18n="story-4">Turismo dental</span>
+      </button>
+      <button type="button" class="story reveal" data-video="assets/video/historias/instalaciones.mp4">
+        <video class="story__video" src="assets/video/historias/instalaciones.mp4" poster="assets/video/historias/instalaciones.jpg" muted loop playsinline preload="none"></video>
+        <span class="story__overlay"></span>
+        <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="story__label" data-i18n="story-5">Nuestra clínica</span>
+      </button>
   </div>
 </section>
 
@@ -223,35 +310,30 @@
           <span class="hero__trust-num">01</span>
           <div>
             <span class="hero__trust-item-title" data-i18n="why-1-title">+20 años de experiencia</span>
-            <p data-i18n-html="why-1-text">La Dra. Sandra Acevedo cuida cada detalle con excelencia, compromiso y pasión por la estética dental.</p>
           </div>
         </li>
         <li class="reveal">
           <span class="hero__trust-num">02</span>
           <div>
             <span class="hero__trust-item-title" data-i18n="why-2-title">Diseño adaptado a tu rostro</span>
-            <p data-i18n-html="why-2-text">Analizamos la forma de tu rostro, el ancho real de tu sonrisa y el color perfecto para tu piel.</p>
           </div>
         </li>
         <li class="reveal">
           <span class="hero__trust-num">03</span>
           <div>
             <span class="hero__trust-item-title" data-i18n="why-3-title">Materiales de alta calidad</span>
-            <p data-i18n-html="why-3-text">Trabajamos con <strong>cerámica</strong> o <strong>resina</strong> para lograr resultados duraderos, armónicos y naturales.</p>
           </div>
         </li>
         <li class="reveal">
           <span class="hero__trust-num">04</span>
           <div>
             <span class="hero__trust-item-title" data-i18n="why-4-title">Odontología integral</span>
-            <p data-i18n-html="why-4-text">Cirugía oral, prótesis, rehabilitación oral, ortodoncia invisible y estética dental en un mismo lugar.</p>
           </div>
         </li>
         <li class="reveal">
           <span class="hero__trust-num">05</span>
           <div>
             <span class="hero__trust-item-title" data-i18n="why-5-title">Garantía y seguimiento</span>
-            <p data-i18n-html="why-5-text">Diagnóstico personalizado, garantía y seguimiento profesional en cada etapa de tu tratamiento.</p>
           </div>
         </li>
       </ul>
@@ -272,7 +354,6 @@
     <div class="tourism__inner reveal">
       <p class="eyebrow" data-i18n="tour-eyebrow">Turismo odontológico</p>
       <h2 data-i18n-html="tour-title">Tu sonrisa, en manos expertas <span class="accent">desde cualquier lugar.</span></h2>
-      <p data-i18n="tour-text">Seguimos impactando la odontología en Medellín y en el mundo. Recibimos pacientes nacionales e internacionales con la misma calidad, profesionalismo y calidez humana de siempre.</p>
       <a href="#contacto" class="btn btn--primary"><span data-i18n="cta">Agendar valoración</span>
         <svg class="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
@@ -311,6 +392,13 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=3"></script>
+<div class="lightbox" id="lightbox" hidden>
+  <button type="button" class="lightbox__close" id="lightboxClose" aria-label="Cerrar" data-i18n-aria="close-aria">
+    <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <video class="lightbox__video" id="lightboxVideo" controls playsinline></video>
+</div>
+
+<script src="js/main.js?v=4"></script>
 </body>
 </html>

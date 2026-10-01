@@ -599,7 +599,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
   letter-spacing: .6px;
   text-transform: uppercase;
   color: var(--heading);
-  margin-bottom: 6px;
+  margin-bottom: 0;
 }
 .hero__trust-list p {
   font-size: clamp(13px, .25vw + 12px, 14.5px);
@@ -724,6 +724,159 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
 .dot { width: 7px; height: 7px; border-radius: 50%; background: #D9CFB9; transition: background .2s, transform .2s; }
 .dot.is-active { background: var(--accent); transform: scale(1.35); }
 
+/* ANTES Y DESPUÉS */
+.results { padding: 90px 0; }
+.ba-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 980px; margin: 0 auto; }
+.ba { margin: 0; }
+.ba__frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 24px 50px rgba(60,45,20,.16);
+  --pos: 50%;
+  touch-action: pan-y;
+}
+.ba__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ba__before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.ba__handle {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: var(--pos);
+  width: 2px;
+  transform: translateX(-1px);
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,.35);
+  pointer-events: none;
+}
+.ba__handle svg {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 44px; height: 44px;
+  padding: 11px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--accent-dark);
+  stroke-width: 2;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+.ba__range {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.ba__range:focus-visible + .ba__handle, .ba__frame:focus-within { outline: 3px solid var(--accent); outline-offset: 3px; }
+.ba__tag {
+  position: absolute;
+  top: 16px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.ba__tag--before { left: 16px; background: rgba(15,14,11,.7); color: #fff; }
+.ba__tag--after { right: 16px; background: var(--surface); color: var(--heading); }
+.ba figcaption { margin-top: 14px; text-align: center; font-family: var(--serif); font-size: 19px; color: var(--heading); }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 48px;
+}
+.gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(60,45,20,.12);
+}
+
+/* HISTORIAS REALES (videos tipo reels) */
+.stories { padding: 90px 0; background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.stories__track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px max(24px, calc((100vw - 1200px) / 2 + 24px)) 12px;
+  scrollbar-width: none;
+}
+.stories__track::-webkit-scrollbar { display: none; }
+.story {
+  position: relative;
+  flex: 0 0 clamp(200px, 22vw, 260px);
+  aspect-ratio: 9 / 16;
+  border: none;
+  border-radius: 22px;
+  overflow: hidden;
+  padding: 0;
+  background: #000;
+  cursor: pointer;
+  scroll-snap-align: center;
+  box-shadow: 0 18px 40px rgba(60,45,20,.18);
+  transition: transform .3s cubic-bezier(.2,.8,.2,1);
+}
+.story:hover { transform: translateY(-6px); }
+.story__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.story__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,8,4,.75), transparent 45%); }
+.story__play {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.9);
+  color: var(--heading);
+}
+.story__play svg { width: 16px; height: 16px; fill: currentColor; stroke: none; margin-left: 2px; }
+.story__label {
+  position: absolute;
+  left: 16px; right: 16px; bottom: 16px;
+  text-align: left;
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+/* Visor de video con sonido */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(10,9,7,.92);
+}
+.lightbox[hidden] { display: none; }
+.lightbox__video { max-height: 90vh; max-width: 100%; aspect-ratio: 9 / 16; border-radius: 18px; background: #000; }
+.lightbox__close {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  cursor: pointer;
+}
+.lightbox__close svg { width: 22px; height: 22px; stroke-width: 2; }
+body.lightbox-open { overflow: hidden; }
+
 /* TURISMO ODONTOLÓGICO */
 .tourism {
   background:
@@ -764,6 +917,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
 
 /* RESPONSIVE */
 @media (max-width: 960px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); }
   .hero__inner { grid-template-columns: 1fr; grid-template-areas: "text"; }
   .hero__media { display: none; }
   .hero__text { max-width: 100%; }
@@ -800,6 +954,12 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
   .section-title .eyebrow { font-size: 22px; }
   .tourism { min-height: 80vh; padding: 70px 0; }
   .locations__grid { grid-template-columns: 1fr; }
+  .results, .stories { padding: 56px 0; }
+  .ba-grid { grid-template-columns: 1fr; gap: 28px; }
+  .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 32px; }
+  .gallery img { border-radius: 14px; }
+  .stories__track { padding: 4px 16px 12px; gap: 12px; }
+  .story { flex-basis: 62%; }
 
   /* Razones como carrusel deslizable en celular */
   .hero__trust-list {

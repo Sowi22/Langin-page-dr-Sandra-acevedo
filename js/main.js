@@ -70,6 +70,19 @@ const translations = {
     'wa-phone': 'Teléfono',
     'wa-treatment': 'Tratamiento de interés',
     'wa-message': 'Mensaje',
+    'nav-6': 'Antes y después', 'nav-6-aria': 'Ir a Antes y después',
+    'nav-7': 'Historias reales', 'nav-7-aria': 'Ir a Historias reales',
+    'ba-title': 'Antes y después',
+    'ba-sub': 'Desliza para ver el cambio.',
+    'ba-before': 'Antes', 'ba-after': 'Después',
+    'ba-before-alt': 'Sonrisa antes del tratamiento', 'ba-after-alt': 'Sonrisa después del tratamiento',
+    'ba-range-aria': 'Comparar antes y después',
+    'ba-1': 'Caso real', 'ba-2': 'Carillas de porcelana',
+    'gallery-alt': 'Resultado real de Excellent Dental Studio',
+    'stories-title': 'Historias reales',
+    'story-1': 'Transformación', 'story-2': 'Sito Pérez · España', 'story-3': 'Ángel Santana · Tampa',
+    'story-4': 'Turismo dental', 'story-5': 'Nuestra clínica',
+    'close-aria': 'Cerrar',
   },
   en: {
     'page-title': 'Excellent Dental Studio | Smile Design in Medellín, Colombia',
@@ -140,6 +153,19 @@ const translations = {
     'wa-phone': 'Phone',
     'wa-treatment': 'Treatment of interest',
     'wa-message': 'Message',
+    'nav-6': 'Before & after', 'nav-6-aria': 'Go to Before & after',
+    'nav-7': 'Real stories', 'nav-7-aria': 'Go to Real stories',
+    'ba-title': 'Before & after',
+    'ba-sub': 'Slide to see the change.',
+    'ba-before': 'Before', 'ba-after': 'After',
+    'ba-before-alt': 'Smile before treatment', 'ba-after-alt': 'Smile after treatment',
+    'ba-range-aria': 'Compare before and after',
+    'ba-1': 'Real case', 'ba-2': 'Porcelain veneers',
+    'gallery-alt': 'Real result at Excellent Dental Studio',
+    'stories-title': 'Real stories',
+    'story-1': 'Transformation', 'story-2': 'Sito Pérez · Spain', 'story-3': 'Ángel Santana · Tampa',
+    'story-4': 'Dental tourism', 'story-5': 'Our clinic',
+    'close-aria': 'Close',
   },
 };
 
@@ -306,6 +332,8 @@ const mobileQuery = window.matchMedia('(max-width: 640px)');
 const globePositions = {
   desktop: [
     { left: 94, top: 10, scale: .6,  opacity: 0 },    // Inicio
+    { left: 6,  top: 85, scale: .7,  opacity: 0 },    // Antes y después
+    { left: 94, top: 85, scale: .7,  opacity: 0 },    // Historias reales
     { left: 8,  top: 85, scale: .7,  opacity: 0 },    // Tratamientos
     { left: 92, top: 15, scale: .7,  opacity: 0 },    // Agenda tu valoración
     { left: 50, top: 50, scale: 2,   opacity: .5 },   // Turismo odontológico
@@ -313,6 +341,8 @@ const globePositions = {
   ],
   mobile: [
     { left: 94, top: 6,  scale: .5,  opacity: 0 },
+    { left: 6,  top: 94, scale: .5,  opacity: 0 },
+    { left: 94, top: 94, scale: .5,  opacity: 0 },
     { left: 6,  top: 94, scale: .5,  opacity: 0 },
     { left: 94, top: 8,  scale: .5,  opacity: 0 },
     { left: 50, top: 50, scale: 1.3, opacity: .4 },
@@ -414,4 +444,53 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.querySelectorAll('.proc-card__video').forEach((v) => {
     if (v.tagName === 'VIDEO') { v.removeAttribute('autoplay'); v.pause(); }
   });
+}
+
+/* Comparador antes/después: el control deslizante mueve la línea divisoria */
+document.querySelectorAll('[data-ba]').forEach((frame) => {
+  const range = frame.querySelector('.ba__range');
+  const update = () => frame.style.setProperty('--pos', range.value + '%');
+  range.addEventListener('input', update);
+  update();
+});
+
+/* Historias: los videos se reproducen en silencio solo mientras están en pantalla */
+const storyVideos = document.querySelectorAll('.story__video');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (storyVideos.length && 'IntersectionObserver' in window && !reduceMotion) {
+  const storyObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const v = entry.target;
+      if (entry.isIntersecting) { v.play().catch(() => {}); } else { v.pause(); }
+    });
+  }, { threshold: 0.4 });
+  storyVideos.forEach((v) => storyObserver.observe(v));
+}
+
+/* Al tocar una historia se abre en grande, con sonido y controles */
+const lightbox = document.getElementById('lightbox');
+const lightboxVideo = document.getElementById('lightboxVideo');
+let lastStory = null;
+function closeLightbox() {
+  lightboxVideo.pause();
+  lightboxVideo.removeAttribute('src');
+  lightboxVideo.load();
+  lightbox.hidden = true;
+  document.body.classList.remove('lightbox-open');
+  if (lastStory) lastStory.focus();
+}
+document.querySelectorAll('.story').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    lastStory = btn;
+    lightboxVideo.src = btn.dataset.video;
+    lightbox.hidden = false;
+    document.body.classList.add('lightbox-open');
+    lightboxVideo.play().catch(() => {});
+    document.getElementById('lightboxClose').focus();
+  });
+});
+if (lightbox) {
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lightbox.hidden) closeLightbox(); });
 }
