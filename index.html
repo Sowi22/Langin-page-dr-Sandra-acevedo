@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excellent Dental Studio | Diseño de sonrisa en Medellín</title>
+<meta name="description" content="Excellent Dental Studio, odontología integral y estética en Medellín. Dra. Sandra Acevedo, expertos en diseño de sonrisa digital. Agenda tu valoración.">
+<meta name="theme-color" content="#0C0B09">
+<link rel="icon" href="assets/logo/logo-excellent-dental.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="cursor-glow" aria-hidden="true"></div>
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<!-- Barra de progreso del scroll -->
+<div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+
+<!-- Navegación lateral por secciones -->
+<nav class="side-nav" aria-label="Secciones">
+  <ul>
+    <li><button type="button" data-target="inicio" aria-label="Ir a Inicio"><span class="side-nav__label">Inicio</span></button></li>
+    <li><button type="button" data-target="tratamientos" aria-label="Ir a Tratamientos"><span class="side-nav__label">Tratamientos</span></button></li>
+    <li><button type="button" data-target="turismo" aria-label="Ir a Turismo odontológico"><span class="side-nav__label">Turismo odontológico</span></button></li>
+    <li><button type="button" data-target="sedes" aria-label="Ir a Sedes"><span class="side-nav__label">Sedes</span></button></li>
+  </ul>
+</nav>
+
+<!-- Globo que se desplaza entre secciones -->
+<div class="globe-wrap" id="globe" aria-hidden="true">
+  <div class="globe">
+    <span class="star" style="left:-20px;top:0;animation-duration:3s"></span>
+    <span class="star" style="left:-40px;top:30px;animation-duration:2s"></span>
+    <span class="star" style="left:290px;top:60px;animation-duration:2s"></span>
+    <span class="star" style="left:200px;top:290px;animation-duration:3s"></span>
+    <span class="star" style="left:50px;top:270px;animation-duration:1.5s"></span>
+  </div>
+</div>
+
+<!-- HERO + FORM -->
+<section class="hero" id="inicio" data-section>
+  <div class="hero__glow"></div>
+  <div class="container">
+    <div class="hero__logo-top">
+      <img src="assets/logo/logo-excellent-dental.jpg" alt="" class="hero__logo-img" width="64" height="64">
+      <span class="hero__logo-text">Excellent Dental<small>Studio</small></span>
+    </div>
+  </div>
+  <div class="hero__inner">
+    <div class="hero__text">
+      <p class="eyebrow">Dra. Sandra Acevedo &mdash; Odontología integral y estética</p>
+      <h1>Diseñamos sonrisas que elevan tu imagen, tu seguridad y tu <span class="accent">presencia.</span></h1>
+      <p class="hero__sub">Más de 20 años creando sonrisas únicas, naturales y totalmente personalizadas en Medellín.</p>
+
+      <ul class="hero__stats">
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M12 15a5 5 0 100-10 5 5 0 000 10zM8.5 14L7 22l5-3 5 3-1.5-8"/></svg>
+          <span><strong>+20 años</strong>Creando sonrisas en Medellín</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+          <span><strong>Diseño digital</strong>Expertos en diseño de sonrisa digital</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span><strong>2 sedes</strong>Laureles y El Poblado</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+          <span><strong>Turismo odontológico</strong>Pacientes nacionales e internacionales</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="hero__form" id="contacto">
+      <p class="eyebrow">Agenda tu</p>
+      <h2>Valoración sin compromiso</h2>
+
+      <form class="lead-form" id="leadForm" novalidate>
+        <div class="lead-form__row">
+          <label>
+            <span>Nombre</span>
+            <input type="text" name="nombre" autocomplete="name" required>
+          </label>
+          <label>
+            <span>Teléfono / WhatsApp</span>
+            <input type="tel" name="telefono" autocomplete="tel" inputmode="tel" required>
+          </label>
+        </div>
+        <label>
+          <span>Tratamiento de interés</span>
+          <select name="tratamiento" required>
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option>Diseño de sonrisa en cerámica</option>
+            <option>Diseño de sonrisa en resina</option>
+            <option>Micro diseño de sonrisa</option>
+            <option>Rehabilitación oral</option>
+            <option>Prótesis dental</option>
+            <option>Ortodoncia invisible</option>
+            <option>Cirugía oral</option>
+            <option>Valoración general</option>
+          </select>
+        </label>
+        <label>
+          <span>Mensaje <em>(opcional)</em></span>
+          <textarea name="mensaje" rows="3"></textarea>
+        </label>
+        <p class="lead-form__error" id="formError" role="alert" hidden>Completa tu nombre, teléfono y el tratamiento de interés.</p>
+        <button type="submit" class="btn btn--primary">Agendar valoración
+          <svg class="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+
+      <div class="contact__trust">
+        <span><svg viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3.4 8.7-7 10-3.6-1.3-7-5-7-10V6z"/></svg>Tus datos están protegidos.</span>
+        <span><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Planes de pago cómodos.</span>
+      </div>
+    </div>
+
+    <div class="hero__trust">
+      <p class="hero__trust-title">¿Por qué elegir Excellent Dental Studio?</p>
+      <ul class="hero__trust-list" id="trustTrack">
+        <li class="reveal">
+          <span class="hero__trust-num">01</span>
+          <div>
+            <span class="hero__trust-item-title">+20 años de experiencia</span>
+            <p>La Dra. Sandra Acevedo cuida cada detalle con excelencia, compromiso y pasión por la estética dental.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="hero__trust-num">02</span>
+          <div>
+            <span class="hero__trust-item-title">Diseño adaptado a tu rostro</span>
+            <p>Analizamos la forma de tu rostro, el ancho real de tu sonrisa y el color perfecto para tu piel.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="hero__trust-num">03</span>
+          <div>
+            <span class="hero__trust-item-title">Materiales de alta calidad</span>
+            <p>Trabajamos con <strong>cerámica</strong> o <strong>resina</strong> para lograr resultados duraderos, armónicos y naturales.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="hero__trust-num">04</span>
+          <div>
+            <span class="hero__trust-item-title">Odontología integral</span>
+            <p>Cirugía oral, prótesis, rehabilitación oral, ortodoncia invisible y estética dental en un mismo lugar.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="hero__trust-num">05</span>
+          <div>
+            <span class="hero__trust-item-title">Garantía y seguimiento</span>
+            <p>Diagnóstico personalizado, garantía y seguimiento profesional en cada etapa de tu tratamiento.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="trust__dots" id="trustDots">
+        <span class="dot is-active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRATAMIENTOS -->
+<section class="procedures" id="tratamientos" data-section>
+  <div class="container">
+    <div class="section-title reveal">
+      <p class="eyebrow">¿Qué deseas transformar?</p>
+      <p class="section-title__sub">Sonrisas personalizadas y naturales, que resaltan tu verdadera esencia.</p>
+    </div>
+
+    <div class="procedures__grid" id="procTrack">
+      <a href="#contacto" class="proc-card reveal">
+        <video class="proc-card__video" src="assets/video/diseno-ceramica.mp4" poster="assets/img/poster-ceramica.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <span class="proc-card__overlay"></span>
+        <span class="proc-card__body">
+          <h3>Diseño de sonrisa en cerámica</h3>
+          <p>Laminados cerámicos de estética premium y durabilidad superior.</p>
+        </span>
+        <span class="proc-card__plus">+</span>
+      </a>
+
+      <a href="#contacto" class="proc-card reveal">
+        <video class="proc-card__video" src="assets/video/diseno-digital.mp4" poster="assets/img/poster-digital.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <span class="proc-card__overlay"></span>
+        <span class="proc-card__body">
+          <h3>Micro diseño de sonrisa</h3>
+          <p>Resultados sutiles y armónicos con técnicas mínimamente invasivas.</p>
+        </span>
+        <span class="proc-card__plus">+</span>
+      </a>
+
+      <a href="#contacto" class="proc-card reveal">
+        <img class="proc-card__video" src="assets/img/rehabilitacion-oral.jpg" alt="Resultado de rehabilitación oral en Excellent Dental Studio" loading="lazy">
+        <span class="proc-card__overlay"></span>
+        <span class="proc-card__body">
+          <h3>Rehabilitación oral</h3>
+          <p>Prótesis fija y láminas cerámicas para devolver función y armonía.</p>
+        </span>
+        <span class="proc-card__plus">+</span>
+      </a>
+    </div>
+    <div class="procedures__dots" id="procDots">
+      <span class="dot is-active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</section>
+
+<!-- TURISMO ODONTOLÓGICO -->
+<section class="tourism" id="turismo" data-section>
+  <div class="container">
+    <div class="tourism__inner reveal">
+      <p class="eyebrow">Turismo odontológico</p>
+      <h2>Tu sonrisa, en manos expertas <span class="accent">desde cualquier lugar.</span></h2>
+      <p>Seguimos impactando la odontología en Medellín y en el mundo. Recibimos pacientes nacionales e internacionales con la misma calidad, profesionalismo y calidez humana de siempre.</p>
+      <a href="#contacto" class="btn btn--primary">Agendar valoración
+        <svg class="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SEDES -->
+<section class="locations" id="sedes" data-section>
+  <div class="container">
+    <div class="section-title reveal">
+      <p class="eyebrow">Nuestras sedes en Medellín</p>
+    </div>
+    <div class="locations__grid">
+      <div class="location-card reveal">
+        <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <h3>Sede El Poblado</h3>
+        <p>Edificio Xerox, Cra. 43A #15 Sur-15<br>Consultorio 903</p>
+      </div>
+      <div class="location-card reveal">
+        <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <h3>Sede Laureles</h3>
+        <p>Tv. 39B #79A-71<br>Laureles &ndash; Estadio</p>
+      </div>
+    </div>
+    <p class="locations__contact reveal">314 762 3636 &nbsp;·&nbsp; 311 300 1196 &nbsp;·&nbsp; smilebeautysas@gmail.com</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p class="footer__name">Excellent Dental Studio</p>
+    <p>Odontología integral y estética &middot; @excellentdental.studio</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
