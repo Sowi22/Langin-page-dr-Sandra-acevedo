@@ -364,9 +364,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
 }
 .hero__media-badge strong { display: block; font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--heading); }
 .hero__media-badge span { font-size: 13px; color: var(--text-muted); }
-.hero__top-cta { display: none; }
-
-/* ESCRITORIO: el hero cabe en una pantalla, logo a la izquierda y botón a la derecha.
+/* ESCRITORIO: el hero cabe en una pantalla, con el logo centrado arriba.
    La foto grande reemplaza a la franja con la foto pequeña (el móvil no cambia). */
 @media (min-width: 961px) {
   .hero__text .hero__doctor { display: none; }
@@ -376,32 +374,10 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
     flex-direction: column;
     padding: 28px 0 64px;
   }
-  /* Logo al centro y botón a la derecha (la primera columna equilibra el espacio) */
-  .hero__topbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    margin-bottom: 32px;
-  }
-  .hero__logo-top { grid-column: 2; margin: 0; justify-content: center; }
-  .hero__top-cta { grid-column: 3; justify-self: end; }
+  .hero__topbar { margin-bottom: 32px; }
+  .hero__logo-top { margin: 0; justify-content: center; }
   .hero__logo-img { width: 56px; height: 56px; }
   .hero__logo-text { font-size: 24px; }
-  .hero__top-cta {
-    display: inline-flex;
-    align-items: center;
-    padding: 12px 22px;
-    border-radius: 999px;
-    border: 1px solid var(--heading);
-    color: var(--heading);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background .3s, color .3s;
-  }
-  .hero__top-cta:hover { background: var(--heading); color: var(--bg); }
   .hero__inner { flex: 1; align-items: center; }
   .hero__media { max-width: none; width: auto; justify-self: end; }
   .hero__media img {
