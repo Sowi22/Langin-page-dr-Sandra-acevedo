@@ -92,18 +92,20 @@ const sections = [...document.querySelectorAll('[data-section]')];
 const navButtons = [...document.querySelectorAll('.side-nav button')];
 const mobileQuery = window.matchMedia('(max-width: 640px)');
 
+/* El globo solo se ve en la sección oscura de Turismo; en las demás viaja
+   a su posición con opacidad 0, así aparece y se va con movimiento. */
 const globePositions = {
   desktop: [
-    { left: 94, top: 7,  scale: 1,   opacity: .85 },  // Inicio
-    { left: 8,  top: 82, scale: .9,  opacity: .8 },   // Tratamientos
-    { left: 50, top: 50, scale: 2,   opacity: .45 },  // Turismo odontológico
-    { left: 90, top: 80, scale: 1.3, opacity: .7 },   // Sedes
+    { left: 94, top: 10, scale: .6,  opacity: 0 },    // Inicio
+    { left: 8,  top: 85, scale: .7,  opacity: 0 },    // Tratamientos
+    { left: 50, top: 50, scale: 2,   opacity: .5 },   // Turismo odontológico
+    { left: 92, top: 85, scale: .8,  opacity: 0 },    // Sedes
   ],
   mobile: [
-    { left: 94, top: 6,  scale: .55, opacity: .55 },
-    { left: 6,  top: 94, scale: .5,  opacity: .5 },
-    { left: 50, top: 50, scale: 1.3, opacity: .35 },
-    { left: 94, top: 92, scale: .6,  opacity: .5 },
+    { left: 94, top: 6,  scale: .5,  opacity: 0 },
+    { left: 6,  top: 94, scale: .5,  opacity: 0 },
+    { left: 50, top: 50, scale: 1.3, opacity: .4 },
+    { left: 94, top: 92, scale: .5,  opacity: 0 },
   ],
 };
 
