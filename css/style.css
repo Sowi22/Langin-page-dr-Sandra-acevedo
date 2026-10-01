@@ -376,13 +376,15 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
     flex-direction: column;
     padding: 28px 0 64px;
   }
+  /* Logo al centro y botón a la derecha (la primera columna equilibra el espacio) */
   .hero__topbar {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
     margin-bottom: 32px;
   }
-  .hero__logo-top { margin: 0; justify-content: flex-start; }
+  .hero__logo-top { grid-column: 2; margin: 0; justify-content: center; }
+  .hero__top-cta { grid-column: 3; justify-self: end; }
   .hero__logo-img { width: 56px; height: 56px; }
   .hero__logo-text { font-size: 24px; }
   .hero__top-cta {
