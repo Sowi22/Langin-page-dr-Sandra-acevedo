@@ -98,12 +98,14 @@ const globePositions = {
   desktop: [
     { left: 94, top: 10, scale: .6,  opacity: 0 },    // Inicio
     { left: 8,  top: 85, scale: .7,  opacity: 0 },    // Tratamientos
+    { left: 92, top: 15, scale: .7,  opacity: 0 },    // Agenda tu valoración
     { left: 50, top: 50, scale: 2,   opacity: .5 },   // Turismo odontológico
     { left: 92, top: 85, scale: .8,  opacity: 0 },    // Sedes
   ],
   mobile: [
     { left: 94, top: 6,  scale: .5,  opacity: 0 },
     { left: 6,  top: 94, scale: .5,  opacity: 0 },
+    { left: 94, top: 8,  scale: .5,  opacity: 0 },
     { left: 50, top: 50, scale: 1.3, opacity: .4 },
     { left: 94, top: 92, scale: .5,  opacity: 0 },
   ],

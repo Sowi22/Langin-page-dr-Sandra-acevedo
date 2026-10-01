@@ -330,20 +330,64 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: .92fr 1.08fr;
-  grid-template-areas:
-    "text form"
-    "trust form";
-  column-gap: 48px;
-  align-items: stretch;
+  grid-template-columns: 1.05fr .95fr;
+  grid-template-areas: "text media";
+  column-gap: 64px;
+  align-items: center;
 }
-.hero__text { grid-area: text; max-width: 560px; padding-top: 14px; min-width: 0; }
-.hero__form { grid-area: form; min-width: 0; align-self: start; }
+.hero__text { grid-area: text; max-width: 580px; min-width: 0; }
+.hero__media { grid-area: media; position: relative; min-width: 0; max-width: 420px; justify-self: end; width: 100%; }
+.hero__media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: 0 30px 70px rgba(60,45,20,.18);
+}
+.hero__media::before {
+  content: '';
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border: 1px solid var(--accent);
+  border-radius: 28px;
+  opacity: .5;
+  z-index: -1;
+}
+.hero__media-badge {
+  position: absolute;
+  left: -28px; bottom: 36px;
+  padding: 14px 20px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 34px rgba(60,45,20,.14);
+}
+.hero__media-badge strong { display: block; font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--heading); }
+.hero__media-badge span { font-size: 13px; color: var(--text-muted); }
+/* En escritorio la foto grande reemplaza a la franja con la foto pequeña */
+@media (min-width: 961px) {
+  .hero__text .hero__doctor { display: none; }
+}
+
+/* AGENDA (formulario + razones) */
+.contact { padding: 90px 0; }
+.contact__inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: .92fr 1.08fr;
+  grid-template-areas: "trust form";
+  column-gap: 56px;
+  align-items: start;
+}
+.hero__form { grid-area: form; min-width: 0; }
+.hero__trust { grid-area: trust; min-width: 0; }
 /* En escritorio el formulario acompaña mientras se leen las razones */
 @media (min-width: 961px) {
   .hero__form { position: sticky; top: 32px; }
 }
-.hero__trust { grid-area: trust; min-width: 0; }
 .hero__text h1 { font-size: clamp(30px, 2.2vw + 18px, 50px); margin-bottom: 20px; }
 .hero__sub { color: var(--text-muted); font-size: clamp(15px, .5vw + 13px, 18px); max-width: 480px; margin-bottom: 32px; }
 
@@ -375,18 +419,14 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
 .hero__stats svg { width: 22px; height: 22px; color: var(--accent-dark); flex-shrink: 0; margin-top: 2px; }
 .hero__stats strong { display: block; font-family: var(--serif); font-size: clamp(14px, .5vw + 12px, 17px); font-weight: 400; color: var(--heading); line-height: 1.3; }
 
-.hero__trust {
-  margin-top: 8px;
-  padding-top: 28px;
-  border-top: 1px solid var(--border);
-}
+.hero__trust { padding-top: 4px; }
 .hero__trust-title {
   font-family: var(--serif);
-  font-style: italic;
   font-weight: 400;
-  font-size: clamp(16px, .6vw + 13px, 19px);
+  font-size: clamp(24px, 1.2vw + 17px, 34px);
+  line-height: 1.15;
   color: var(--heading);
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 .hero__trust-list { list-style: none; }
 .hero__trust-list li {
@@ -580,12 +620,14 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
 
 /* RESPONSIVE */
 @media (max-width: 960px) {
-  .hero__inner {
-    grid-template-columns: 1fr;
-    grid-template-areas: "text" "form" "trust";
-    row-gap: 32px;
-  }
+  .hero__inner { grid-template-columns: 1fr; grid-template-areas: "text"; }
+  .hero__media { display: none; }
   .hero__text { max-width: 100%; }
+  .contact__inner {
+    grid-template-columns: 1fr;
+    grid-template-areas: "form" "trust";
+    row-gap: 48px;
+  }
   .hero__form { max-width: 560px; width: 100%; }
 }
 
@@ -603,7 +645,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
   .hero__stats { gap: 18px 14px; }
   .hero__form { padding: 24px; border-radius: 20px; }
   .lead-form__row { grid-template-columns: 1fr; }
-  .procedures, .locations { padding: 56px 0; }
+  .procedures, .locations, .contact { padding: 56px 0; }
   .procedures__grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   .procedures__grid::-webkit-scrollbar { display: none; }
   .proc-card { flex: 0 0 78%; scroll-snap-align: center; }

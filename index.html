@@ -25,6 +25,7 @@
   <ul>
     <li><button type="button" data-target="inicio" aria-label="Ir a Inicio"><span class="side-nav__label">Inicio</span></button></li>
     <li><button type="button" data-target="tratamientos" aria-label="Ir a Tratamientos"><span class="side-nav__label">Tratamientos</span></button></li>
+    <li><button type="button" data-target="contacto" aria-label="Ir a Agenda tu valoración"><span class="side-nav__label">Agenda tu valoración</span></button></li>
     <li><button type="button" data-target="turismo" aria-label="Ir a Turismo odontológico"><span class="side-nav__label">Turismo odontológico</span></button></li>
     <li><button type="button" data-target="sedes" aria-label="Ir a Sedes"><span class="side-nav__label">Sedes</span></button></li>
   </ul>
@@ -41,7 +42,7 @@
   </div>
 </div>
 
-<!-- HERO + FORM -->
+<!-- HERO -->
 <section class="hero" id="inicio" data-section>
   <div class="hero__glow"></div>
   <div class="container">
@@ -82,9 +83,73 @@
           <span><strong>Turismo odontológico</strong>Pacientes nacionales e internacionales</span>
         </li>
       </ul>
+
+      <a href="#contacto" class="btn btn--primary">Agendar valoración
+        <svg class="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
 
-    <div class="hero__form" id="contacto">
+    <div class="hero__media">
+      <img src="assets/img/dra-sandra-acevedo-retrato.jpg" alt="Dra. Sandra Acevedo en Excellent Dental Studio" width="640" height="800">
+      <div class="hero__media-badge">
+        <strong>Dra. Sandra Acevedo</strong>
+        <span>Especialista en diseño de sonrisa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRATAMIENTOS -->
+<section class="procedures" id="tratamientos" data-section>
+  <div class="container">
+    <div class="section-title reveal">
+      <p class="eyebrow">¿Qué deseas transformar?</p>
+      <p class="section-title__sub">Sonrisas personalizadas y naturales, que resaltan tu verdadera esencia.</p>
+    </div>
+
+    <div class="procedures__grid" id="procTrack">
+      <a href="#contacto" class="proc-card reveal">
+        <video class="proc-card__video" src="assets/video/diseno-ceramica.mp4" poster="assets/img/poster-ceramica.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <span class="proc-card__overlay"></span>
+        <span class="proc-card__body">
+          <h3>Diseño de sonrisa en cerámica</h3>
+          <p>Laminados cerámicos de estética premium y durabilidad superior.</p>
+        </span>
+        <span class="proc-card__plus">+</span>
+      </a>
+
+      <a href="#contacto" class="proc-card reveal">
+        <video class="proc-card__video" src="assets/video/diseno-digital.mp4" poster="assets/img/poster-digital.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <span class="proc-card__overlay"></span>
+        <span class="proc-card__body">
+          <h3>Micro diseño de sonrisa</h3>
+          <p>Resultados sutiles y armónicos con técnicas mínimamente invasivas.</p>
+        </span>
+        <span class="proc-card__plus">+</span>
+      </a>
+
+      <a href="#contacto" class="proc-card reveal">
+        <img class="proc-card__video" src="assets/img/rehabilitacion-oral.jpg" alt="Resultado de rehabilitación oral en Excellent Dental Studio" loading="lazy">
+        <span class="proc-card__overlay"></span>
+        <span class="proc-card__body">
+          <h3>Rehabilitación oral</h3>
+          <p>Prótesis fija y láminas cerámicas para devolver función y armonía.</p>
+        </span>
+        <span class="proc-card__plus">+</span>
+      </a>
+    </div>
+    <div class="procedures__dots" id="procDots">
+      <span class="dot is-active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section class="contact" id="contacto" data-section>
+  <div class="contact__inner">
+    <div class="hero__form">
       <p class="eyebrow">Agenda tu</p>
       <h2>Valoración sin compromiso</h2>
 
@@ -175,53 +240,6 @@
         <span class="dot"></span>
         <span class="dot"></span>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- TRATAMIENTOS -->
-<section class="procedures" id="tratamientos" data-section>
-  <div class="container">
-    <div class="section-title reveal">
-      <p class="eyebrow">¿Qué deseas transformar?</p>
-      <p class="section-title__sub">Sonrisas personalizadas y naturales, que resaltan tu verdadera esencia.</p>
-    </div>
-
-    <div class="procedures__grid" id="procTrack">
-      <a href="#contacto" class="proc-card reveal">
-        <video class="proc-card__video" src="assets/video/diseno-ceramica.mp4" poster="assets/img/poster-ceramica.jpg" autoplay muted loop playsinline preload="metadata"></video>
-        <span class="proc-card__overlay"></span>
-        <span class="proc-card__body">
-          <h3>Diseño de sonrisa en cerámica</h3>
-          <p>Laminados cerámicos de estética premium y durabilidad superior.</p>
-        </span>
-        <span class="proc-card__plus">+</span>
-      </a>
-
-      <a href="#contacto" class="proc-card reveal">
-        <video class="proc-card__video" src="assets/video/diseno-digital.mp4" poster="assets/img/poster-digital.jpg" autoplay muted loop playsinline preload="metadata"></video>
-        <span class="proc-card__overlay"></span>
-        <span class="proc-card__body">
-          <h3>Micro diseño de sonrisa</h3>
-          <p>Resultados sutiles y armónicos con técnicas mínimamente invasivas.</p>
-        </span>
-        <span class="proc-card__plus">+</span>
-      </a>
-
-      <a href="#contacto" class="proc-card reveal">
-        <img class="proc-card__video" src="assets/img/rehabilitacion-oral.jpg" alt="Resultado de rehabilitación oral en Excellent Dental Studio" loading="lazy">
-        <span class="proc-card__overlay"></span>
-        <span class="proc-card__body">
-          <h3>Rehabilitación oral</h3>
-          <p>Prótesis fija y láminas cerámicas para devolver función y armonía.</p>
-        </span>
-        <span class="proc-card__plus">+</span>
-      </a>
-    </div>
-    <div class="procedures__dots" id="procDots">
-      <span class="dot is-active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
     </div>
   </div>
 </section>
