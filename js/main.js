@@ -80,7 +80,7 @@ const translations = {
     'ba-1': 'Caso real', 'ba-2': 'Carillas de porcelana',
     'gallery-alt': 'Resultado real de Excellent Dental Studio',
     'stories-title': 'Historias reales',
-    'story-aria': 'Ver video',
+    'story-aria': 'Ver video', 'prev-aria': 'Video anterior', 'next-aria': 'Video siguiente',
     'close-aria': 'Cerrar',
   },
   en: {
@@ -162,7 +162,7 @@ const translations = {
     'ba-1': 'Real case', 'ba-2': 'Porcelain veneers',
     'gallery-alt': 'Real result at Excellent Dental Studio',
     'stories-title': 'Real stories',
-    'story-aria': 'Watch video',
+    'story-aria': 'Watch video', 'prev-aria': 'Previous video', 'next-aria': 'Next video',
     'close-aria': 'Close',
   },
 };
@@ -461,14 +461,32 @@ if (storyVideos.length && 'IntersectionObserver' in window && !reduceMotion) {
       const v = entry.target;
       if (entry.isIntersecting) { v.play().catch(() => {}); } else { v.pause(); }
     });
-  }, { threshold: 0.4 });
+  }, { threshold: 0.6 }); /* en celular solo se reproduce el video que está al centro */
   storyVideos.forEach((v) => storyObserver.observe(v));
 }
+wireCarouselDots('storiesTrack', '#storiesDots .dot');
 
 /* Al tocar una historia se abre en grande, con sonido y controles */
 const lightbox = document.getElementById('lightbox');
 const lightboxVideo = document.getElementById('lightboxVideo');
+const storyButtons = [...document.querySelectorAll('.story')];
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+const lightboxCount = document.getElementById('lightboxCount');
 let lastStory = null;
+let storyIndex = 0;
+function showStory(i) {
+  if (i < 0 || i >= storyButtons.length) return;
+  storyIndex = i;
+  lastStory = storyButtons[i];
+  lightboxVideo.src = storyButtons[i].dataset.video;
+  lightboxVideo.play().catch(() => {});
+  lightboxPrev.disabled = i === 0;
+  lightboxNext.disabled = i === storyButtons.length - 1;
+  lightboxCount.textContent = (i + 1) + ' / ' + storyButtons.length;
+  /* deja la tarjeta correspondiente centrada en el carrusel al cerrar */
+  storyButtons[i].scrollIntoView({ block: 'nearest', inline: 'center' });
+}
 function closeLightbox() {
   lightboxVideo.pause();
   lightboxVideo.removeAttribute('src');
@@ -477,18 +495,37 @@ function closeLightbox() {
   document.body.classList.remove('lightbox-open');
   if (lastStory) lastStory.focus();
 }
-document.querySelectorAll('.story').forEach((btn) => {
+storyButtons.forEach((btn, i) => {
   btn.addEventListener('click', () => {
-    lastStory = btn;
-    lightboxVideo.src = btn.dataset.video;
     lightbox.hidden = false;
     document.body.classList.add('lightbox-open');
-    lightboxVideo.play().catch(() => {});
+    showStory(i);
     document.getElementById('lightboxClose').focus();
   });
 });
 if (lightbox) {
   document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', () => showStory(storyIndex - 1));
+  lightboxNext.addEventListener('click', () => showStory(storyIndex + 1));
+  /* al terminar un video pasa solo al siguiente */
+  lightboxVideo.addEventListener('ended', () => showStory(storyIndex + 1));
   lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lightbox.hidden) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showStory(storyIndex - 1);
+    if (e.key === 'ArrowRight') showStory(storyIndex + 1);
+  });
+  /* En celular: deslizar a los lados cambia de video, deslizar hacia abajo cierra */
+  let touchX = 0, touchY = 0;
+  lightbox.addEventListener('touchstart', (e) => {
+    touchX = e.touches[0].clientX;
+    touchY = e.touches[0].clientY;
+  }, { passive: true });
+  lightbox.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    const dy = e.changedTouches[0].clientY - touchY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) showStory(storyIndex + (dx < 0 ? 1 : -1));
+    else if (dy > 90 && dy > Math.abs(dx)) closeLightbox();
+  }, { passive: true });
 }

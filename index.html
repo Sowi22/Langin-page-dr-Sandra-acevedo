@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=6">
 <script>
   /* Si la persona ya eligió idioma (o el enlace trae ?lang=es / ?lang=en), se oculta la pantalla de selección antes de pintar la página */
   try { var q = new URLSearchParams(location.search).get('lang'); if (q === 'es' || q === 'en') localStorage.setItem('excellent_dental_lang', q); var l = localStorage.getItem('excellent_dental_lang'); if (l === 'es' || l === 'en') { document.documentElement.lang = l; document.documentElement.classList.add('lang-chosen'); } } catch (e) {}
@@ -216,6 +216,9 @@
         <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
       </button>
   </div>
+  <div class="stories__dots" id="storiesDots" aria-hidden="true">
+    <span class="dot is-active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+  </div>
 </section>
 
 <!-- TRATAMIENTOS -->
@@ -406,9 +409,16 @@
   <button type="button" class="lightbox__close" id="lightboxClose" aria-label="Cerrar" data-i18n-aria="close-aria">
     <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
   </button>
+  <button type="button" class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Video anterior" data-i18n-aria="prev-aria">
+    <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+  </button>
   <video class="lightbox__video" id="lightboxVideo" controls playsinline></video>
+  <button type="button" class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Video siguiente" data-i18n-aria="next-aria">
+    <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+  <span class="lightbox__count" id="lightboxCount" aria-live="polite"></span>
 </div>
 
-<script src="js/main.js?v=5"></script>
+<script src="js/main.js?v=6"></script>
 </body>
 </html>

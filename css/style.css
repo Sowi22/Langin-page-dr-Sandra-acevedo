@@ -876,6 +876,29 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
 }
 .lightbox__close svg { width: 22px; height: 22px; stroke-width: 2; }
 body.lightbox-open { overflow: hidden; }
+.lightbox__close { z-index: 2; }
+.lightbox__nav {
+  flex: 0 0 auto;
+  width: 52px; height: 52px;
+  margin: 0 16px;
+  display: flex; align-items: center; justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  cursor: pointer;
+}
+.lightbox__nav svg { width: 24px; height: 24px; stroke-width: 2; }
+.lightbox__nav:disabled { opacity: .25; cursor: default; }
+.lightbox__count {
+  position: absolute;
+  top: 28px; left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,.8);
+  font-size: 13px;
+  letter-spacing: .08em;
+}
+.stories__dots { display: none; justify-content: center; gap: 8px; margin-top: 18px; }
 
 /* TURISMO ODONTOLÓGICO */
 .tourism {
@@ -959,7 +982,19 @@ body.lightbox-open { overflow: hidden; }
   .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 32px; }
   .gallery img { border-radius: 14px; }
   .stories__track { padding: 4px 16px 12px; gap: 12px; }
-  .story { flex-basis: 62%; }
+  .story { flex-basis: 72%; }
+  .story:hover { transform: none; }
+  .story__play { width: 44px; height: 44px; }
+  .stories__dots { display: flex; }
+
+  /* Visor a pantalla completa en celular: se desliza para cambiar de video */
+  .lightbox { padding: 0; touch-action: pan-y; }
+  .lightbox__video { width: 100vw; height: 100dvh; max-height: none; aspect-ratio: auto; border-radius: 0; object-fit: contain; }
+  .lightbox__nav { position: absolute; top: 50%; transform: translateY(-50%); margin: 0; width: 44px; height: 44px; background: rgba(0,0,0,.35); z-index: 2; }
+  .lightbox__nav--prev { left: 8px; }
+  .lightbox__nav--next { right: 8px; }
+  .lightbox__close { top: max(14px, env(safe-area-inset-top)); right: 14px; background: rgba(0,0,0,.45); }
+  .lightbox__count { top: max(28px, calc(env(safe-area-inset-top) + 14px)); z-index: 2; text-shadow: 0 1px 4px rgba(0,0,0,.6); }
 
   /* Razones como carrusel deslizable en celular */
   .hero__trust-list {
