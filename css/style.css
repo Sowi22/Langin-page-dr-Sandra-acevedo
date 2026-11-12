@@ -667,58 +667,27 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
 }
 .section-title__sub { color: var(--text-muted); font-size: clamp(14px, .4vw + 12px, 17px); margin-top: 14px; }
 
-/* PROCEDURES */
-.procedures { padding: 90px 0; background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.procedures__grid {
+/* PROCEDURES: lista en texto, liviana */
+.procedures { padding: 90px 0; background: var(--bg-alt); border-top: 1px solid var(--border); }
+.proc-list {
+  list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 56px;
+  max-width: 980px;
+  margin: 0 auto;
 }
-.proc-card {
-  position: relative;
-  aspect-ratio: 3/4;
-  border-radius: 24px;
-  overflow: hidden;
-  text-decoration: none;
-  color: #ffffff;
+.proc-item {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 26px;
-  border: 1px solid var(--border);
-  background: #000;
-  transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s;
+  gap: 18px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
 }
-.proc-card:hover { transform: translateY(-8px); box-shadow: 0 26px 50px rgba(60,45,20,.25); }
-.proc-card__video {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(.9) saturate(1.05);
-}
-.proc-card__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(to top, rgba(10,8,4,.92) 0%, rgba(10,8,4,.35) 45%, rgba(10,8,4,.05) 100%);
-}
-.proc-card__body, .proc-card__plus { position: relative; z-index: 2; }
-.proc-card__body h3 { font-size: clamp(20px, .8vw + 16px, 27px); margin-bottom: 8px; color: #fff; }
-.proc-card__body p { font-size: clamp(13px, .3vw + 12px, 15px); color: rgba(255,255,255,.75); max-width: 260px; }
-.proc-card__plus {
-  position: absolute;
-  top: 22px; right: 22px;
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-light), var(--accent-dark));
-  color: #1A1408;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px; font-weight: 600; line-height: 1;
-}
-
+.proc-item__num { flex: 0 0 auto; font-family: var(--serif); font-size: 18px; color: var(--accent-dark); min-width: 28px; }
+.proc-item h3 { font-size: clamp(19px, .6vw + 15px, 24px); color: var(--heading); margin-bottom: 4px; }
+.proc-item p { font-size: clamp(14px, .2vw + 13px, 16px); color: var(--text-muted); }
+.procedures__cta { text-align: center; margin-top: 44px; }
 .procedures__dots { display: none; justify-content: center; gap: 8px; margin-top: 20px; }
 .trust__dots { display: none; justify-content: center; gap: 8px; margin-top: 16px; }
 .dot { width: 7px; height: 7px; border-radius: 50%; background: #D9CFB9; transition: background .2s, transform .2s; }
@@ -905,10 +874,10 @@ body.lightbox-open { overflow: hidden; }
   background:
     radial-gradient(700px 500px at 50% 50%, rgba(201,162,75,.10), transparent 70%),
     var(--ink);
-  min-height: 92vh;
+  min-height: 72vh;
   display: flex;
   align-items: center;
-  padding: 100px 0;
+  padding: 90px 0;
   text-align: center;
 }
 .tourism__inner { position: relative; z-index: 4; max-width: 720px; margin: 0 auto; }
@@ -918,6 +887,9 @@ body.lightbox-open { overflow: hidden; }
 .tourism h2 { font-size: clamp(30px, 2.4vw + 18px, 56px); margin-bottom: 22px; }
 .tourism p:not(.eyebrow) { color: #EDE6D8; font-size: clamp(15px, .5vw + 13px, 19px); margin: 0 auto 34px; max-width: 600px; text-shadow: 0 2px 18px rgba(0,0,0,.8); }
 
+.tourism__points { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; margin: 0 auto 34px; }
+.tourism__points li { display: flex; align-items: center; gap: 8px; color: #EDE6D8; font-size: 15px; }
+.tourism__points svg { width: 20px; height: 20px; flex: 0 0 auto; fill: none; stroke: var(--accent-light); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 /* SEDES */
 .locations { padding: 90px 0 70px; }
 .locations__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 860px; margin: 0 auto; }
@@ -970,12 +942,12 @@ body.lightbox-open { overflow: hidden; }
   .hero__form { padding: 24px; border-radius: 20px; }
   .lead-form__row { grid-template-columns: 1fr; }
   .procedures, .locations, .contact { padding: 56px 0; }
-  .procedures__grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-  .procedures__grid::-webkit-scrollbar { display: none; }
-  .proc-card { flex: 0 0 78%; scroll-snap-align: center; }
-  .procedures__dots { display: flex; }
+  .proc-list { grid-template-columns: 1fr; }
+  .proc-item { padding: 16px 0; gap: 14px; }
+  .procedures__cta { margin-top: 32px; }
+  .tourism__points { flex-direction: column; align-items: flex-start; max-width: 290px; gap: 12px; }
   .section-title .eyebrow { font-size: 22px; }
-  .tourism { min-height: 80vh; padding: 70px 0; }
+  .tourism { padding: 64px 0; }
   .locations__grid { grid-template-columns: 1fr; }
   .results, .stories { padding: 56px 0; }
   .ba-grid { grid-template-columns: 1fr; gap: 28px; }
