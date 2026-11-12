@@ -14,9 +14,12 @@
   document.querySelectorAll('.marquee__track').forEach((track) => {
     track.innerHTML += track.innerHTML;
   });
+  /* Las fotos de la tira solo se descargan en computador (en el celular no existen) */
+  document.querySelectorAll('.photo-strip img[data-src]').forEach((img) => { img.src = img.dataset.src; img.removeAttribute('data-src'); });
   document.querySelectorAll('.photo-strip__track').forEach((track) => {
-    const original = track.innerHTML;
-    track.innerHTML = original + original + original + original; /* 4 fotos x 4 = una mitad cubre la pantalla */
+    /* 17 fotos distintas: se copian una sola vez para que el ciclo no tenga cortes;
+       la tira mide más del doble de la pantalla, así nunca se ve la misma foto dos veces a la vez */
+    track.innerHTML += track.innerHTML;
   });
 
   /* Cifras que cuentan hasta su valor cuando aparecen */

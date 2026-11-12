@@ -149,7 +149,7 @@ body { overflow-x: visible; }
   display: flex;
   gap: 18px;
   width: max-content;
-  animation: marquee 45s linear infinite;
+  animation: marquee 95s linear infinite;
 }
 .photo-strip img {
   width: 260px;
