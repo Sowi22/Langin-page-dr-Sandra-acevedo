@@ -1,0 +1,2 @@
+/* Si la persona ya eligió idioma (o el enlace trae ?lang=es / ?lang=en), se oculta la pantalla de selección antes de pintar la página */
+try { var q = new URLSearchParams(location.search).get('lang'); if (q === 'es' || q === 'en') localStorage.setItem('excellent_dental_lang', q); var l = localStorage.getItem('excellent_dental_lang'); if (l === 'es' || l === 'en') { document.documentElement.lang = l; document.documentElement.classList.add('lang-chosen'); } } catch (e) {}

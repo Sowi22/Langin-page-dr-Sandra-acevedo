@@ -2,8 +2,8 @@
    después se recuerda la elección y el botón ES/EN del encabezado permite cambiarla. */
 const translations = {
   es: {
-    'page-title': 'Excellent Dental Studio | Diseño de sonrisa en Medellín',
-    'page-description': 'Excellent Dental Studio, odontología integral y estética en Medellín. Dra. Sandra Acevedo, expertos en diseño de sonrisa digital. Agenda tu valoración.',
+    'page-title': 'Diseño de sonrisa en Medellín | Dra. Sandra Acevedo · Excellent Dental Studio',
+    'page-description': 'Diseño de sonrisa en Medellín con la Dra. Sandra Acevedo: carillas en cerámica y resina, ortodoncia invisible y rehabilitación oral. +20 años, 2 sedes y turismo odontológico.',
     'lang-toggle-label': 'EN',
     'nav-aria': 'Secciones',
     'nav-1': 'Inicio', 'nav-1-aria': 'Ir a Inicio',
@@ -69,7 +69,7 @@ const translations = {
     'loc-1': 'Sede El Poblado',
     'loc-1-addr': 'Edificio Xerox, Cra. 43A #15 Sur-15<br>Consultorio 903',
     'loc-2': 'Sede Laureles',
-    'footer-text': 'Odontología integral y estética &middot; @excellentdental.studio',
+    'footer-text': 'Odontología integral y estética &middot; @excellentdentalstudio',
     'wa-greeting': 'Hola, quiero agendar una valoración en Excellent Dental Studio.',
     'wa-name': 'Nombre',
     'wa-phone': 'Teléfono',
@@ -85,12 +85,12 @@ const translations = {
     'ba-1': 'Caso real', 'ba-2': 'Carillas de porcelana',
     'gallery-alt': 'Resultado real de Excellent Dental Studio',
     'stories-title': 'Historias reales',
-    'story-aria': 'Ver video', 'prev-aria': 'Video anterior', 'next-aria': 'Video siguiente',
+    'story-aria': 'Ver video', 'footer-legal': '© 2026 Excellent Dental Studio. Todos los derechos reservados. Prohibida la reproducción total o parcial del contenido, fotos y videos de este sitio.', 'prev-aria': 'Video anterior', 'next-aria': 'Video siguiente',
     'close-aria': 'Cerrar',
   },
   en: {
-    'page-title': 'Excellent Dental Studio | Smile Design in Medellín, Colombia',
-    'page-description': 'Excellent Dental Studio, comprehensive and cosmetic dentistry in Medellín, Colombia. Dr. Sandra Acevedo, experts in digital smile design. Book your consultation.',
+    'page-title': 'Smile Design in Medellín, Colombia | Dr. Sandra Acevedo · Excellent Dental Studio',
+    'page-description': 'Smile design in Medellín, Colombia with Dr. Sandra Acevedo: porcelain and composite veneers, clear aligners and full mouth rehabilitation. 20+ years, 2 locations, dental tourism.',
     'lang-toggle-label': 'ES',
     'nav-aria': 'Sections',
     'nav-1': 'Home', 'nav-1-aria': 'Go to Home',
@@ -156,7 +156,7 @@ const translations = {
     'loc-1': 'El Poblado location',
     'loc-1-addr': 'Edificio Xerox, Cra. 43A #15 Sur-15<br>Office 903',
     'loc-2': 'Laureles location',
-    'footer-text': 'Comprehensive &amp; cosmetic dentistry &middot; @excellentdental.studio',
+    'footer-text': 'Comprehensive &amp; cosmetic dentistry &middot; @excellentdentalstudio',
     'wa-greeting': 'Hello, I would like to book a consultation at Excellent Dental Studio.',
     'wa-name': 'Name',
     'wa-phone': 'Phone',
@@ -172,7 +172,7 @@ const translations = {
     'ba-1': 'Real case', 'ba-2': 'Porcelain veneers',
     'gallery-alt': 'Real result at Excellent Dental Studio',
     'stories-title': 'Real stories',
-    'story-aria': 'Watch video', 'prev-aria': 'Previous video', 'next-aria': 'Next video',
+    'story-aria': 'Watch video', 'footer-legal': '© 2026 Excellent Dental Studio. All rights reserved. Copying all or part of the content, photos or videos on this site is prohibited.', 'prev-aria': 'Previous video', 'next-aria': 'Next video',
     'close-aria': 'Close',
   },
 };
@@ -538,4 +538,16 @@ if (lightbox) {
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) showStory(storyIndex + (dx < 0 ? 1 : -1));
     else if (dy > 90 && dy > Math.abs(dx)) closeLightbox();
   }, { passive: true });
+}
+
+/* Protección del contenido: evita descargar fotos y videos con clic derecho o arrastrándolos,
+   y que la página se muestre dentro de otro sitio (marco). */
+document.addEventListener('contextmenu', (e) => {
+  if (e.target.closest('img, video, .story, .ba, .gallery, .hero__media')) e.preventDefault();
+});
+document.addEventListener('dragstart', (e) => {
+  if (e.target.closest('img, video')) e.preventDefault();
+});
+if (window.top !== window.self) {
+  try { window.top.location = window.self.location; } catch (e) { document.documentElement.style.display = 'none'; }
 }

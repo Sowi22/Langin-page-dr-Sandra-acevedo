@@ -996,3 +996,7 @@ body.lightbox-open { overflow: hidden; }
   .globe { animation: none; transition: none; }
   .side-nav button.is-active .side-nav__label { animation: none; }
 }
+
+/* Pie de página legal y protección de fotos/videos */
+.footer__legal { font-size: 12px; opacity: .7; margin-top: 10px; max-width: 640px; margin-left: auto; margin-right: auto; }
+img, video { -webkit-user-drag: none; user-select: none; -webkit-touch-callout: none; }
