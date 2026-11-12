@@ -121,7 +121,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=8">
+<link rel="stylesheet" href="css/style.css?v=9">
 <script src="js/lang-init.js?v=8"></script>
 </head>
 <body>
@@ -324,7 +324,10 @@
         <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
       </button>
   </div>
-  <div class="stories__dots" id="storiesDots" aria-hidden="true">
+  <div class="stories__nav">
+    <button type="button" id="storiesPrev" aria-label="Videos anteriores" data-i18n-aria="prev-aria"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button type="button" id="storiesNext" aria-label="Más videos" data-i18n-aria="next-aria"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>  <div class="stories__dots" id="storiesDots" aria-hidden="true">
     <span class="dot is-active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
   </div>
 </section>
@@ -558,6 +561,6 @@
   <span class="lightbox__count" id="lightboxCount" aria-live="polite"></span>
 </div>
 
-<script src="js/main.js?v=8"></script>
+<script src="js/main.js?v=9"></script>
 </body>
 </html>

@@ -343,7 +343,7 @@ const globePositions = {
     { left: 6,  top: 85, scale: .7,  opacity: 0 },    // Antes y después
     { left: 94, top: 85, scale: .7,  opacity: 0 },    // Historias reales
     { left: 8,  top: 85, scale: .7,  opacity: 0 },    // Tratamientos
-    { left: 50, top: 50, scale: 1.6, opacity: .5 },   // Turismo odontológico
+    { left: 50, top: 50, scale: 1.4, opacity: .5 },   // Turismo odontológico
     { left: 92, top: 15, scale: .7,  opacity: 0 },    // Agenda tu valoración
     { left: 92, top: 85, scale: .8,  opacity: 0 },    // Sedes
   ],
@@ -475,6 +475,12 @@ if (storyVideos.length && 'IntersectionObserver' in window && !reduceMotion) {
   storyVideos.forEach((v) => storyObserver.observe(v));
 }
 wireCarouselDots('storiesTrack', '#storiesDots .dot');
+/* Flechas del carrusel de videos en computador */
+const storiesTrackEl = document.getElementById('storiesTrack');
+[['storiesPrev', -1], ['storiesNext', 1]].forEach(([id, dir]) => {
+  const b = document.getElementById(id);
+  if (b && storiesTrackEl) b.addEventListener('click', () => storiesTrackEl.scrollBy({ left: dir * storiesTrackEl.clientWidth * 0.6, behavior: 'smooth' }));
+});
 
 /* Al tocar una historia se abre en grande, con sonido y controles */
 const lightbox = document.getElementById('lightbox');

@@ -1000,3 +1000,37 @@ body.lightbox-open { overflow: hidden; }
 /* Pie de página legal y protección de fotos/videos */
 .footer__legal { font-size: 12px; opacity: .7; margin-top: 10px; max-width: 640px; margin-left: auto; margin-right: auto; }
 img, video { -webkit-user-drag: none; user-select: none; -webkit-touch-callout: none; }
+/* COMPUTADOR: secciones más compactas e imágenes de tamaño moderado (el celular no cambia) */
+@media (min-width: 961px) {
+  .results, .stories, .procedures, .contact { padding: 64px 0; }
+  .locations { padding: 64px 0 56px; }
+  .tourism { min-height: 0; padding: 72px 0; }
+  .section-title { margin-bottom: 30px; }
+
+  .ba-grid { max-width: 780px; gap: 20px; }
+  .ba figcaption { margin-top: 10px; font-size: 17px; }
+  .gallery { max-width: 780px; margin: 28px auto 0; gap: 12px; }
+  .gallery img { aspect-ratio: 1 / 1; border-radius: 14px; }
+
+  .story { flex-basis: 190px; border-radius: 18px; }
+  .story__play { width: 34px; height: 34px; top: 12px; right: 12px; }
+
+
+  .proc-list { max-width: 900px; }
+  .proc-item { padding: 16px 0; }
+  .procedures__cta { margin-top: 32px; }
+}
+.stories__nav { display: none; justify-content: center; gap: 12px; margin-top: 22px; }
+@media (min-width: 961px) { .stories__nav { display: flex; } }
+.stories__nav button {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--heading);
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.stories__nav button:hover { background: var(--accent); color: #1A1408; }
+.stories__nav svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
