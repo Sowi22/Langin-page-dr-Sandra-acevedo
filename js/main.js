@@ -85,7 +85,7 @@ const translations = {
     'ba-1': 'Caso real', 'ba-2': 'Carillas de porcelana',
     'gallery-alt': 'Resultado real de Excellent Dental Studio',
     'stories-title': 'Historias reales',
-    'story-aria': 'Ver video', 'footer-legal': '© 2026 Excellent Dental Studio. Todos los derechos reservados. Prohibida la reproducción total o parcial del contenido, fotos y videos de este sitio.', 'prev-aria': 'Video anterior', 'next-aria': 'Video siguiente',
+    'story-aria': 'Ver video', 'band-1': 'años creando sonrisas', 'band-2': 'sedes en Medellín', 'band-3': 'tratamientos especializados', 'band-4': 'atención bilingüe', 'footer-legal': '© 2026 Excellent Dental Studio. Todos los derechos reservados. Prohibida la reproducción total o parcial del contenido, fotos y videos de este sitio.', 'prev-aria': 'Video anterior', 'next-aria': 'Video siguiente',
     'close-aria': 'Cerrar',
   },
   en: {
@@ -172,7 +172,7 @@ const translations = {
     'ba-1': 'Real case', 'ba-2': 'Porcelain veneers',
     'gallery-alt': 'Real result at Excellent Dental Studio',
     'stories-title': 'Real stories',
-    'story-aria': 'Watch video', 'footer-legal': '© 2026 Excellent Dental Studio. All rights reserved. Copying all or part of the content, photos or videos on this site is prohibited.', 'prev-aria': 'Previous video', 'next-aria': 'Next video',
+    'story-aria': 'Watch video', 'band-1': 'years creating smiles', 'band-2': 'locations in Medellín', 'band-3': 'specialized treatments', 'band-4': 'bilingual care', 'footer-legal': '© 2026 Excellent Dental Studio. All rights reserved. Copying all or part of the content, photos or videos on this site is prohibited.', 'prev-aria': 'Previous video', 'next-aria': 'Next video',
     'close-aria': 'Close',
   },
 };
