@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=5">
 <script>
   /* Si la persona ya eligió idioma (o el enlace trae ?lang=es / ?lang=en), se oculta la pantalla de selección antes de pintar la página */
   try { var q = new URLSearchParams(location.search).get('lang'); if (q === 'es' || q === 'en') localStorage.setItem('excellent_dental_lang', q); var l = localStorage.getItem('excellent_dental_lang'); if (l === 'es' || l === 'en') { document.documentElement.lang = l; document.documentElement.classList.add('lang-chosen'); } } catch (e) {}
@@ -175,35 +175,45 @@
     </div>
   </div>
   <div class="stories__track" id="storiesTrack">
-      <button type="button" class="story reveal" data-video="assets/video/historias/transformacion.mp4">
-        <video class="story__video" src="assets/video/historias/transformacion.mp4" poster="assets/video/historias/transformacion.jpg" muted loop playsinline preload="none"></video>
+      <button type="button" class="story reveal" data-video="assets/video/historias/video-1.mp4" aria-label="Ver video" data-i18n-aria="story-aria">
+        <video class="story__video" src="assets/video/historias/video-1.mp4" poster="assets/video/historias/video-1.jpg" muted loop playsinline preload="none"></video>
         <span class="story__overlay"></span>
         <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="story__label" data-i18n="story-1">Transformación</span>
       </button>
-      <button type="button" class="story reveal" data-video="assets/video/historias/sito-perez.mp4">
-        <video class="story__video" src="assets/video/historias/sito-perez.mp4" poster="assets/video/historias/sito-perez.jpg" muted loop playsinline preload="none"></video>
+      <button type="button" class="story reveal" data-video="assets/video/historias/video-2.mp4" aria-label="Ver video" data-i18n-aria="story-aria">
+        <video class="story__video" src="assets/video/historias/video-2.mp4" poster="assets/video/historias/video-2.jpg" muted loop playsinline preload="none"></video>
         <span class="story__overlay"></span>
         <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="story__label" data-i18n="story-2">Sito Pérez · España</span>
       </button>
-      <button type="button" class="story reveal" data-video="assets/video/historias/angel-santana.mp4">
-        <video class="story__video" src="assets/video/historias/angel-santana.mp4" poster="assets/video/historias/angel-santana.jpg" muted loop playsinline preload="none"></video>
+      <button type="button" class="story reveal" data-video="assets/video/historias/video-3.mp4" aria-label="Ver video" data-i18n-aria="story-aria">
+        <video class="story__video" src="assets/video/historias/video-3.mp4" poster="assets/video/historias/video-3.jpg" muted loop playsinline preload="none"></video>
         <span class="story__overlay"></span>
         <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="story__label" data-i18n="story-3">Ángel Santana · Tampa</span>
       </button>
-      <button type="button" class="story reveal" data-video="assets/video/historias/turismo-dental.mp4">
-        <video class="story__video" src="assets/video/historias/turismo-dental.mp4" poster="assets/video/historias/turismo-dental.jpg" muted loop playsinline preload="none"></video>
+      <button type="button" class="story reveal" data-video="assets/video/historias/video-4.mp4" aria-label="Ver video" data-i18n-aria="story-aria">
+        <video class="story__video" src="assets/video/historias/video-4.mp4" poster="assets/video/historias/video-4.jpg" muted loop playsinline preload="none"></video>
         <span class="story__overlay"></span>
         <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="story__label" data-i18n="story-4">Turismo dental</span>
       </button>
-      <button type="button" class="story reveal" data-video="assets/video/historias/instalaciones.mp4">
-        <video class="story__video" src="assets/video/historias/instalaciones.mp4" poster="assets/video/historias/instalaciones.jpg" muted loop playsinline preload="none"></video>
+      <button type="button" class="story reveal" data-video="assets/video/historias/video-5.mp4" aria-label="Ver video" data-i18n-aria="story-aria">
+        <video class="story__video" src="assets/video/historias/video-5.mp4" poster="assets/video/historias/video-5.jpg" muted loop playsinline preload="none"></video>
         <span class="story__overlay"></span>
         <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="story__label" data-i18n="story-5">Nuestra clínica</span>
+      </button>
+      <button type="button" class="story reveal" data-video="assets/video/historias/video-6.mp4" aria-label="Ver video" data-i18n-aria="story-aria">
+        <video class="story__video" src="assets/video/historias/video-6.mp4" poster="assets/video/historias/video-6.jpg" muted loop playsinline preload="none"></video>
+        <span class="story__overlay"></span>
+        <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
+      <button type="button" class="story reveal" data-video="assets/video/historias/video-7.mp4" aria-label="Ver video" data-i18n-aria="story-aria">
+        <video class="story__video" src="assets/video/historias/video-7.mp4" poster="assets/video/historias/video-7.jpg" muted loop playsinline preload="none"></video>
+        <span class="story__overlay"></span>
+        <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
+      <button type="button" class="story reveal" data-video="assets/video/historias/video-8.mp4" aria-label="Ver video" data-i18n-aria="story-aria">
+        <video class="story__video" src="assets/video/historias/video-8.mp4" poster="assets/video/historias/video-8.jpg" muted loop playsinline preload="none"></video>
+        <span class="story__overlay"></span>
+        <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
       </button>
   </div>
 </section>
@@ -399,6 +409,6 @@
   <video class="lightbox__video" id="lightboxVideo" controls playsinline></video>
 </div>
 
-<script src="js/main.js?v=4"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>

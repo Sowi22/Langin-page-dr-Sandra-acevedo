@@ -80,8 +80,7 @@ const translations = {
     'ba-1': 'Caso real', 'ba-2': 'Carillas de porcelana',
     'gallery-alt': 'Resultado real de Excellent Dental Studio',
     'stories-title': 'Historias reales',
-    'story-1': 'Transformación', 'story-2': 'Sito Pérez · España', 'story-3': 'Ángel Santana · Tampa',
-    'story-4': 'Turismo dental', 'story-5': 'Nuestra clínica',
+    'story-aria': 'Ver video',
     'close-aria': 'Cerrar',
   },
   en: {
@@ -163,8 +162,7 @@ const translations = {
     'ba-1': 'Real case', 'ba-2': 'Porcelain veneers',
     'gallery-alt': 'Real result at Excellent Dental Studio',
     'stories-title': 'Real stories',
-    'story-1': 'Transformation', 'story-2': 'Sito Pérez · Spain', 'story-3': 'Ángel Santana · Tampa',
-    'story-4': 'Dental tourism', 'story-5': 'Our clinic',
+    'story-aria': 'Watch video',
     'close-aria': 'Close',
   },
 };
