@@ -48,26 +48,46 @@
     counters.forEach((c) => countObserver.observe(c));
   }
 
-  /* Historias: la sección se queda fija y los videos avanzan de lado mientras se baja */
+  /* Historias: carrusel que se mueve con las flechas, arrastrando con el mouse o con el trackpad.
+     No detiene el scroll de la página. */
   const stories = document.getElementById('historias');
   const pin = stories && stories.querySelector('.stories__pin');
   const track = document.getElementById('storiesTrack');
-  let distance = 0;
-  let progressBar = null;
   if (pin && track) {
     const bar = document.createElement('div');
     bar.className = 'stories__progress';
     bar.innerHTML = '<span></span>';
     pin.appendChild(bar);
-    progressBar = bar.firstElementChild;
-  }
-  function measureStories() {
-    if (!stories || !track) return;
-    track.style.transform = '';
-    distance = Math.max(0, track.scrollWidth - window.innerWidth);
-    stories.style.height = (window.innerHeight + distance) + 'px';
-  }
+    const fill = bar.firstElementChild;
+    const updateBar = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const p = max > 0 ? track.scrollLeft / max : 0;
+      fill.style.transform = 'scaleX(' + Math.max(0.08, p) + ')';
+    };
+    track.addEventListener('scroll', updateBar, { passive: true });
+    window.addEventListener('resize', updateBar);
+    updateBar();
 
+    /* Arrastrar con el mouse */
+    let down = false, startX = 0, startLeft = 0, moved = false;
+    track.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      down = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft;
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 6) { moved = true; track.classList.add('is-dragging'); }
+      if (moved) track.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', () => {
+      if (!down) return;
+      down = false;
+      setTimeout(() => track.classList.remove('is-dragging'), 0);
+    });
+    /* Si se arrastró, no se abre el video */
+    track.addEventListener('click', (e) => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
+  }
   /* Portada: la foto baja más lento que el texto (profundidad) */
   const heroMedia = document.querySelector('.hero__media');
   const heroText = document.querySelector('.hero__text');
@@ -86,19 +106,13 @@
           heroText.style.opacity = String(Math.max(0, 1 - y / (vh * 0.9)));
         }
       }
-      if (stories && track && distance > 0) {
-        const top = stories.getBoundingClientRect().top;
-        const p = Math.min(1, Math.max(0, -top / distance));
-        track.style.transform = `translate3d(${-p * distance}px, 0, 0)`;
-        if (progressBar) progressBar.style.transform = `scaleX(${p})`;
-      }
+
       ticking = false;
     });
   }
 
-  measureStories();
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', () => { measureStories(); onScroll(); });
-  window.addEventListener('load', () => { measureStories(); onScroll(); });
+  window.addEventListener('resize', onScroll);
+  
 })();

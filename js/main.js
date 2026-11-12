@@ -479,7 +479,17 @@ wireCarouselDots('storiesTrack', '#storiesDots .dot');
 const storiesTrackEl = document.getElementById('storiesTrack');
 [['storiesPrev', -1], ['storiesNext', 1]].forEach(([id, dir]) => {
   const b = document.getElementById(id);
-  if (b && storiesTrackEl) b.addEventListener('click', () => storiesTrackEl.scrollBy({ left: dir * storiesTrackEl.clientWidth * 0.6, behavior: 'smooth' }));
+  if (b && storiesTrackEl) b.addEventListener('click', () => {
+    /* Avanza de a 3 videos, alineando siempre al borde de una tarjeta */
+    const cards = [...storiesTrackEl.children];
+    const pad = parseFloat(getComputedStyle(storiesTrackEl).paddingLeft) || 0;
+    const now = storiesTrackEl.scrollLeft;
+    let current = cards.findIndex((c) => c.offsetLeft - pad >= now - 5);
+    if (current < 0) current = cards.length - 1;
+    const target = Math.min(cards.length - 1, Math.max(0, current + dir * 3));
+    const max = storiesTrackEl.scrollWidth - storiesTrackEl.clientWidth;
+    storiesTrackEl.scrollTo({ left: Math.min(max, cards[target].offsetLeft - pad), behavior: 'smooth' });
+  });
 });
 
 /* Al tocar una historia se abre en grande, con sonido y controles */
